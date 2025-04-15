@@ -8,8 +8,10 @@
   <meta name="author" content="Zachary, Xeris Web Co">
   <meta name="robots" content="index, follow">
   <title>Xeris Websites | Modern Web Development by Xeris Web Co</title>
-  <link rel="stylesheet" href="App.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/src/App.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- Fonts for Rainforest Theme -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600;700;800&display=swap" rel="stylesheet">
   <!-- Open Graph Meta Tags for Social Sharing -->
   <meta property="og:title" content="Xeris Websites | Modern Web Development by Xeris Web Co">
   <meta property="og:description" content="Discover professional web development services by Xeris Web Co. Modern, responsive, and SEO-optimized websites built by Zachary.">
@@ -18,92 +20,7 @@
   <meta property="og:type" content="website">
 </head>
 <body>
-  <div className="starry-background"></div>
-  <div className="rotating-text-background">Xeris Web Co</div>
-  <div className="app">
-    <header className="header">
-      <div className="logo-container">
-        <div className="leaf-icon"></div>
-        <h1 className="title">Xeris Websites</h1>
-        <div className="leaf-icon"></div>
-      </div>
-      <nav className="navbar">
-        <div className="desktop-nav">
-          <a href="#home" className="active">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <section id="home" className="home-section">
-        <h2 className="home-title">Welcome to Xeris Websites</h2>
-        <p className="home-text">
-          At Xeris Web Co., we craft <strong>modern, responsive, and SEO-optimized websites</strong> that elevate your online presence. 
-          Built by Zachary, our websites blend stunning rainforest-inspired designs with cutting-edge technology to deliver exceptional user experiences.
-        </p>
-        <a href="#contact" className="cta-btn">Get Your Website Today</a>
-      </section>
-
-      <section id="about" className="about-section">
-        <h2 className="about-title">About Xeris Web Co</h2>
-        <p className="about-text">
-          Xeris Websites are built with expertise and passion by Zachary, a web developer with years of experience in creating high-performing sites. 
-          We specialize in responsive design, SEO optimization, and modern aesthetics inspired by nature. Trust us to bring your vision to life.
-        </p>
-        <img src="https://yourdomain.com/images/zachary-working.jpg" alt="Zachary building Xeris Websites in a rainforest-inspired office" className="about-image">
-      </section>
-
-      <section id="projects" className="projects-section">
-        <h2 className="projects-title">Our Projects</h2>
-        <div className="projects-grid">
-          <div className="project-card">
-            <img src="https://yourdomain.com/images/project1.jpg" alt="Xeris Websites Project 1 - Ecommerce Site" className="project-image">
-            <h3 className="project-title">Ecommerce Site</h3>
-            <p className="project-description">A fully responsive ecommerce platform with SEO optimization, built by Xeris Web Co.</p>
-          </div>
-          <div className="project-card">
-            <img src="https://yourdomain.com/images/project2.jpg" alt="Xeris Websites Project 2 - Portfolio Site" className="project-image">
-            <h3 className="project-title">Portfolio Site</h3>
-            <p className="project-description">A sleek portfolio site showcasing stunning visuals, crafted by Xeris Web Co.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="contact-section">
-        <h2 className="contact-title">Contact Xeris Web Co</h2>
-        <form className="contact-form">
-          <input type="text" placeholder="Name" required />
-          <input type="email" placeholder="Email" required />
-          <textarea placeholder="Message" required></textarea>
-          <button type="submit" className="submit-btn">Send Message</button>
-        </form>
-      </section>
-    </main>
-
-    <footer className="footer">
-      <div className="footer-content">
-        <p className="footer-text">© 2025 Xeris Web Co. Built by Zachary. All rights reserved.</p>
-        <div className="social-icons">
-          <a href="https://twitter.com/xeriswebco" target="_blank" rel="noopener noreferrer" className="social-icon twitter" aria-label="Visit our Twitter">
-            <span className="visually-hidden">Twitter</span>
-          </a>
-          <a href="https://linkedin.com/company/xeriswebco" target="_blank" rel="noopener noreferrer" className="social-icon linkedin" aria-label="Visit our LinkedIn">
-            <span className="visually-hidden">LinkedIn</span>
-          </a>
-          <a href="https://github.com/ZZachWWins" target="_blank" rel="noopener noreferrer" className="social-icon github" aria-label="Visit our GitHub">
-            <span className="visually-hidden">GitHub</span>
-          </a>
-        </div>
-      </div>
-      <div className="wave"></div>
-    </footer>
-
-    <button className="back-to-top-btn">Back to Top</button>
-  </div>
-
-  <script src="App.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/index.js"></script>
 </body>
 </html>
