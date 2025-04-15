@@ -1,0 +1,9 @@
+[build]
+  publish = "frontend/build"
+  functions = "functions"
+  command = "cd frontend && npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

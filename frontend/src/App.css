@@ -1,0 +1,23 @@
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure main content doesn't overlap header */
+main {
+  margin-top: 64px; /* Adjust based on header height */
+}
+
+/* Optional: Glassmorphism effect for sections */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
