@@ -11,9 +11,13 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
+      <div className="app">
+        {/* Starry background for cosmic effect */}
+        <div className="starry-background">
+          <div className="rotating-text-background">Xeris Web Co.</div>
+        </div>
         <Header />
-        <main className="flex-grow">
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -22,6 +26,10 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        {/* Back to top button */}
+        <button className="back-to-top-btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          Back to Top
+        </button>
       </div>
     </Router>
   );
