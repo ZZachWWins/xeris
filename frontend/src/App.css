@@ -113,6 +113,25 @@ body {
   justify-content: center;
 }
 
+.desktop-nav a {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e6d8a7;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+  background: linear-gradient(45deg, #8a5db5, #d4af37);
+  color: #2b1d4a;
+}
+
 .mobile-nav {
   display: none;
 }
@@ -169,6 +188,7 @@ body {
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
   text-align: center;
+  text-decoration: none;
 }
 
 .nav-menu-item:hover,
@@ -220,6 +240,7 @@ body {
   transition: transform 0.2s;
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.7), 0 0 20px rgba(138, 93, 181, 0.5);
   animation: pulseGlow 2s infinite ease-in-out;
+  text-decoration: none;
 }
 
 @keyframes pulseGlow {
@@ -600,4 +621,4 @@ body {
   .mobile-nav {
     display: none;
   }
-}
+}}
