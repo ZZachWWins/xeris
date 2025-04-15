@@ -3,23 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Xeris Websites - Professional web development by Xeris Web Co. Discover modern, responsive, and SEO-optimized websites built by Zachary. Contact us today!">
-  <meta name="keywords" content="Xeris Websites, web development, responsive websites, SEO-optimized websites, Xeris Web Co">
+  <!-- Core SEO Meta Tags -->
+  <meta name="title" content="Xeris Websites - Expert Web Development by Xeris Web Co">
+  <meta name="description" content="Xeris Websites by Xeris Web Co offers expert web development services. Build modern, responsive, SEO-optimized websites with Zachary. Contact us today!">
+  <meta name="keywords" content="Xeris Websites, Xeris Web Co, web development, responsive websites, SEO-optimized websites, custom web design, Zachary web developer">
   <meta name="author" content="Zachary, Xeris Web Co">
   <meta name="robots" content="index, follow">
-  <title>Xeris Websites | Modern Web Development by Xeris Web Co</title>
-  <link rel="stylesheet" href="/src/App.css">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- Open Graph Meta Tags for Social Sharing -->
+  <meta property="og:title" content="Xeris Websites - Expert Web Development by Xeris Web Co">
+  <meta property="og:description" content="Discover professional web development with Xeris Websites by Xeris Web Co. Modern, responsive, and SEO-optimized designs by Zachary.">
+  <meta property="og:image" content="https://xeriswebco.com/images/xeris-logo.jpg">
+  <meta property="og:url" content="https://xeriswebco.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Xeris Web Co">
+  <!-- Twitter Card for Better Twitter Sharing -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Xeris Websites - Expert Web Development by Xeris Web Co">
+  <meta name="twitter:description" content="Discover professional web development with Xeris Websites by Xeris Web Co. Modern, responsive, and SEO-optimized designs by Zachary.">
+  <meta name="twitter:image" content="https://xeriswebco.com/images/xeris-logo.jpg">
   <!-- Fonts for Rainforest Theme -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600;700;800&display=swap" rel="stylesheet">
-  <!-- Open Graph Meta Tags for Social Sharing -->
-  <meta property="og:title" content="Xeris Websites | Modern Web Development by Xeris Web Co">
-  <meta property="og:description" content="Discover professional web development services by Xeris Web Co. Modern, responsive, and SEO-optimized websites built by Zachary.">
-  <meta property="og:image" content="https://yourdomain.com/images/xeris-logo.jpg">
-  <meta property="og:url" content="https://yourdomain.com">
-  <meta property="og:type" content="website">
+  <!-- Favicon and Icons -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Preload Key Assets for Performance -->
+  <link rel="preload" href="/src/App.css" as="style">
+  <link rel="preload" href="/src/index.js" as="script">
+  <link rel="stylesheet" href="/src/App.css">
+  <!-- Schema Markup for Rich Snippets -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xeris Web Co",
+      "url": "https://xeriswebco.com",
+      "logo": "https://xeriswebco.com/images/xeris-logo.jpg",
+      "description": "Xeris Web Co provides expert web development services, specializing in modern, responsive, and SEO-optimized websites built by Zachary.",
+      "founder": {
+        "@type": "Person",
+        "name": "Zachary"
+      },
+      "sameAs": [
+        "https://twitter.com/xeriswebco",
+        "https://linkedin.com/company/xeriswebco",
+        "https://github.com/ZZachWWins"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "contact@xeriswebco.com"
+      }
+    }
+  </script>
+  <title>Xeris Websites | Modern Web Development by Xeris Web Co</title>
 </head>
 <body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <script type="module" src="/src/index.js"></script>
 </body>
