@@ -24,6 +24,8 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  opacity: 0.3;
 }
 
 .rotating-text-background {
@@ -197,6 +199,11 @@ body {
   color: #2b1d4a;
 }
 
+/* Main Section */
+main {
+  flex-grow: 1;
+}
+
 /* Home Section */
 .home-section {
   text-align: center;
@@ -209,6 +216,12 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 30px;
   z-index: 2;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .home-title {
@@ -266,6 +279,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 30px;
   z-index: 2;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .about-title {
@@ -309,6 +323,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 30px;
   z-index: 2;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .projects-title {
@@ -334,7 +349,18 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  opacity: 0;
+  animation: cardFadeIn 0.5s ease forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes cardFadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .project-card:hover {
@@ -372,9 +398,10 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 252, 252, 0.1);
   margin-bottom: 30px;
   z-index: 2;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .contact-title {
@@ -411,6 +438,7 @@ body {
   outline: none;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  transform: scale(1.02);
 }
 
 .contact-form textarea {
@@ -473,9 +501,14 @@ body {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.7), 0 0 20px rgba(138, 93, 181, 0.5);
   z-index: 1000;
+  opacity: 0;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
 }
 
 .back-to-top-btn:hover,
