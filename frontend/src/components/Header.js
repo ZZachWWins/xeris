@@ -8,13 +8,8 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -22,38 +17,39 @@ function Header() {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="logo-container">
-        <h1 className="title">Xeris Web Co.</h1>
-        <div className="leaf-icon"></div>
+        <h1 className="logo">Xeris Web Co.</h1>
       </div>
-      <nav className="navbar">
-        <div className="desktop-nav">
-          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
-            <Link to="/" className={window.location.hash === '#/' ? 'active' : ''}>Home</Link>
-          </Tilt>
-          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
-            <Link to="/about" className={window.location.hash === '#/about' ? 'active' : ''}>About</Link>
-          </Tilt>
-          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
-            <Link to="/projects" className={window.location.hash === '#/projects' ? 'active' : ''}>Projects</Link>
-          </Tilt>
-          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
-            <Link to="/contact" className={window.location.hash === '#/contact' ? 'active' : ''}>Contact</Link>
-          </Tilt>
-        </div>
-        <div className="mobile-nav">
-          <button className="nav-menu-btn" onClick={() => setShowMenu(!showMenu)}>
-            {showMenu ? 'Close Menu' : 'Menu'}
-          </button>
-          {showMenu && (
-            <div className="nav-menu">
-              <Link to="/" className="nav-menu-item" onClick={() => setShowMenu(false)}>Home</Link>
-              <Link to="/about" className="nav-menu-item" onClick={() => setShowMenu(false)}>About</Link>
-              <Link to="/projects" className="nav-menu-item" onClick={() => setShowMenu(false)}>Projects</Link>
-              <Link to="/contact" className="nav-menu-item" onClick={() => setShowMenu(false)}>Contact</Link>
-            </div>
-          )}
-        </div>
+      <nav className="nav">
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
+          <Link to="/" className={`nav-link ${window.location.pathname === '/' ? 'active' : ''}`}>Home</Link>
+        </Tilt>
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
+          <Link to="/about" className={`nav-link ${window.location.pathname === '/about' ? 'active' : ''}`}>About</Link>
+        </Tilt>
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
+          <Link to="/projects" className={`nav-link ${window.location.pathname === '/projects' ? 'active' : ''}`}>Projects</Link>
+        </Tilt>
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
+          <Link to="/contact" className={`nav-link ${window.location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
+        </Tilt>
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
+          <Link to="/xeriscoin" className={`nav-link ${window.location.pathname === '/xeriscoin' ? 'active' : ''}`}>XerisCoin</Link>
+        </Tilt>
       </nav>
+      <div className="mobile-nav">
+        <button className="cta-button" onClick={() => setShowMenu(!showMenu)}>
+          {showMenu ? 'Close' : 'Menu'}
+        </button>
+        {showMenu && (
+          <div className="nav">
+            <Link to="/" className="nav-link" onClick={() => setShowMenu(false)}>Home</Link>
+            <Link to="/about" className="nav-link" onClick={() => setShowMenu(false)}>About</Link>
+            <Link to="/projects" className="nav-link" onClick={() => setShowMenu(false)}>Projects</Link>
+            <Link to="/contact" className="nav-link" onClick={() => setShowMenu(false)}>Contact</Link>
+            <Link to="/xeriscoin" className="nav-link" onClick={() => setShowMenu(false)}>XerisCoin</Link>
+          </div>
+        )}
+      </div>
     </header>
   );
 }

@@ -1,328 +1,239 @@
 /* App.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@400;600;700&family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
-/* Reset and Base Styles */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(180deg, #2b1d4a, #3d2e6b);
-  color: #f0e6d2;
-  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
   overflow-x: hidden;
 }
 
-/* Main container - Fixed width, centered like Genesis II */
-.app {
-  max-width: 1000px;
+.app-container {
+  position: relative;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+  padding: 1rem;
 }
 
-/* Starry Background */
-.starry-background {
-  position: fixed;
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #32cd32, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #ffd700;
+  transform: translateY(-2px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #32cd32;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.rotating-text-background {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 6rem;
-  font-weight: 700;
-  color: rgba(212, 175, 55, 0.2);
-  text-transform: uppercase;
-  animation: rotateGlow 20s linear infinite;
-  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    #32cd32 0%,
+    #800080 25%,
+    #ffd700 50%,
+    #800080 75%,
+    #32cd32 100%
+  );
+  background-size: 200% 200%;
   z-index: -1;
+  opacity: 0.8;
+  animation: gradientShift 15s ease infinite;
 }
 
-@keyframes rotateGlow {
-  0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0.2; }
-  50% { opacity: 0.4; }
-  100% { transform: translate(-50%, -50%) rotate(360deg); opacity: 0.2; }
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Sidebar (Vertical Glassmorphism Menu) */
-.sidebar {
-  width: 200px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: none;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.sidebar-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #d4af37, #8a5db5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.sidebar-btn {
-  padding: 12px 20px;
-  background: linear-gradient(45deg, #8a5db5, #d4af37);
-  color: #2b1d4a;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.7), 0 0 20px rgba(138, 93, 181, 0.5);
-  text-align: center;
-  font-size: 1rem;
-}
-
-.sidebar-btn:hover, .sidebar-btn:active {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.9), 0 0 30px rgba(138, 93, 181, 0.7);
-}
-
-/* Header */
-.header {
-  width: 100%;
-  text-align: center;
-  padding: 20px 15px;
-  background: linear-gradient(135deg, #4a2e85, #8a5db5, #d4af37);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: none;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 2;
-}
-
-.header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-  animation: glow 8s infinite ease-in-out;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes glow {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-.title {
-  font-size: 2.5rem;
+.hero h1 {
+  font-size: 5rem;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #d4af37;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-  margin: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.letter {
-  display: inline-block;
-  transform: translateZ(0);
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  font-weight: 300;
-  margin: 10px 0 15px;
-  color: #e6d8a7;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  position: relative;
-  z-index: 1;
-}
-
-/* Main Content */
-.main-content {
-  flex: 1;
-  padding: 20px;
-}
-
-/* Home Section */
-.home-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-}
-
-.home-title {
-  font-size: 2.5rem;
-  background: linear-gradient(90deg, #d4af37, #8a5db5);
+  background: linear-gradient(45deg, #ffd700, #32cd32);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.home-text {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 1rem auto;
-  color: #f0e6d2;
+.hero p {
+  font-size: 1.8rem;
+  max-width: 700px;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2.5rem;
+}
+
+.cta-button {
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #32cd32);
+  color: #0a0a0a;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(50, 205, 50, 0.5);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.7);
 }
 
 .button-group {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
 }
 
-.cta-btn, .glowing-btn {
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background: linear-gradient(45deg, #8a5db5, #d4af37);
-  color: #2b1d4a;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
-}
-
-.cta-btn:hover, .glowing-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.9);
-}
-
-/* About Section */
-.about-section {
-  padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+.products, .about-section, .projects-section, .contact-section, .xeriscoin-section {
+  padding: 5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
   backdrop-filter: blur(10px);
 }
 
-.about-content {
+.products h2, .about-title, .projects-title, .contact-title, .xeriscoin-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  background: linear-gradient(45deg, #32cd32, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+.product-card:hover {
+  transform: translateY(-15px) rotateX(10deg);
+  box-shadow: 0 15px 40px rgba(50, 205, 50, 0.4);
+  border-color: #ffd700;
+}
+
+.product-card .product-image {
+  width: 100%;
+  height: 180px;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  background-size: cover;
+}
+
+.product-card h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.product-card p {
+  font-size: 1.2rem;
+  color: #ffd700;
+}
+
+.about-content, .contact-form {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.about-title {
-  font-size: 2.5rem;
-  background: linear-gradient(90deg, #d4af37, #8a5db5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .about-text {
-  font-size: 1.1rem;
-  color: #f0e6d2;
+  font-size: 1.2rem;
+  color: #fff;
   line-height: 1.6;
 }
 
-/* Projects Section */
-.projects-section {
-  padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-}
-
-.projects-title {
-  font-size: 2.5rem;
-  text-align: center;
-  background: linear-gradient(90deg, #d4af37, #8a5db5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 2rem auto;
-}
-
-.project-card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.4s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-15px);
-}
-
-.project-image {
-  width: 100%;
-  height: 200px;
-  border-radius: 10px;
-}
-
-.project-title {
-  font-size: 1.5rem;
-  color: #f0e6d2;
-}
-
-.project-description {
-  font-size: 1rem;
-  color: #f0e6d2;
-}
-
-/* Contact Section */
-.contact-section {
-  padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-}
-
-.contact-title {
-  font-size: 2.5rem;
-  text-align: center;
-  background: linear-gradient(90deg, #d4af37, #8a5db5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .contact-form {
-  max-width: 600px;
-  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
 .contact-form input, .contact-form textarea {
-  padding: 0.8rem;
+  padding: 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
-  color: #f0e6d2;
+  color: #fff;
   font-family: 'Inter', sans-serif;
 }
 
@@ -331,77 +242,28 @@ body {
 }
 
 .submit-btn {
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background: linear-gradient(45deg, #8a5db5, #d4af37);
-  color: #2b1d4a;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #32cd32);
+  color: #0a0a0a;
   border: none;
-  border-radius: 10px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+  box-shadow: 0 8px 20px rgba(50, 205, 50, 0.5);
+  transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.9);
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.7);
 }
 
-/* XerisCoin Section */
-.xeriscoin-section {
-  padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-  text-align: center;
-}
-
-.xeriscoin-title {
-  font-size: 2.5rem;
-  background: linear-gradient(90deg, #d4af37, #8a5db5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.xeriscoin-text {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 1rem auto;
-  color: #f0e6d2;
-}
-
-.xeriscoin-details {
-  max-width: 800px;
-  margin: 2rem auto;
-  text-align: left;
-}
-
-.xeriscoin-details h3 {
-  font-size: 1.8rem;
-  background: linear-gradient(90deg, #d4af37, #8a5db5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.xeriscoin-details ul {
-  list-style: none;
-  padding: 0;
-}
-
-.xeriscoin-details li {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  color: #f0e6d2;
-}
-
-/* Footer */
 .footer {
-  padding: 2rem;
+  padding: 4rem 2rem;
   background: rgba(10, 10, 10, 0.9);
   text-align: center;
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-top: 1px solid rgba(50, 205, 50, 0.3);
 }
 
 .footer-content {
@@ -413,8 +275,8 @@ body {
 }
 
 .footer-text {
-  font-size: 1rem;
-  color: #f0e6d2;
+  font-size: 1.3rem;
+  color: #ccc;
 }
 
 .social-icons {
@@ -432,45 +294,41 @@ body {
 .linkedin { background: url('https://res.cloudinary.com/your-cloudinary/linkedin.png'); }
 .github { background: url('https://res.cloudinary.com/your-cloudinary/github.png'); }
 
-.wave {
-  background: url('https://res.cloudinary.com/your-cloudinary/wave.png') repeat-x;
-  height: 60px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.footer-link {
+  color: #32cd32;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-/* Responsive Adjustments */
+.footer-link:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
-  .app {
-    flex-direction: column;
+  .hero h1 {
+    font-size: 3rem;
   }
 
-  .sidebar {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  .hero p {
+    font-size: 1.4rem;
+    max-width: 90%;
   }
 
-  .sidebar-btn {
-    flex: 1;
-    min-width: 120px;
+  .products, .about-section, .projects-section, .contact-section, .xeriscoin-section {
+    padding: 3rem 1rem;
   }
 
-  .main-content {
-    padding: 10px;
-  }
-
-  .home-section, .about-section, .projects-section, .contact-section, .xeriscoin-section {
-    padding: 2rem 1rem;
-  }
-
-  .home-title, .about-title, .projects-title, .contact-title, .xeriscoin-title {
+  .products h2, .about-title, .projects-title, .contact-title, .xeriscoin-title {
     font-size: 2rem;
   }
 
-  .xeriscoin-text {
-    font-size: 1rem;
+  .nav {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
   }
 }
