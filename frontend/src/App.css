@@ -1,5 +1,5 @@
 /* App.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@400;600;700&display=swap');
 
 body {
   margin: 0;
@@ -30,12 +30,13 @@ body {
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
   background: linear-gradient(45deg, #32cd32, #ffd700);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  text-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
 }
 
 .nav {
@@ -99,7 +100,7 @@ body {
   background-size: 200% 200%;
   z-index: -1;
   opacity: 0.8;
-  animation: gradientShift 15s ease infinite;
+  animation: gradientShift 10s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -108,7 +109,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-.hero h1 {
+.hero-title {
   font-size: 5rem;
   font-weight: 800;
   background: linear-gradient(45deg, #ffd700, #32cd32);
@@ -117,14 +118,21 @@ body {
   color: transparent;
   margin-bottom: 1.5rem;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 2s ease-in-out;
 }
 
-.hero p {
+.hero-text {
   font-size: 1.8rem;
   max-width: 700px;
   color: #fff;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   margin-bottom: 2.5rem;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .cta-button {
@@ -151,7 +159,7 @@ body {
   justify-content: center;
 }
 
-.products, .about-section, .projects-section, .contact-section, .xeriscoin-section {
+.products, .about-section, .projects-section, .contact-section {
   padding: 5rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -160,7 +168,7 @@ body {
   backdrop-filter: blur(10px);
 }
 
-.products h2, .about-title, .projects-title, .contact-title, .xeriscoin-title {
+.products-title, .about-title, .projects-title, .contact-title {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 4rem;
@@ -192,7 +200,7 @@ body {
   border-color: #ffd700;
 }
 
-.product-card .product-image {
+.product-image {
   width: 100%;
   height: 180px;
   border-radius: 15px;
@@ -307,20 +315,20 @@ body {
 }
 
 @media (max-width: 768px) {
-  .hero h1 {
+  .hero-title {
     font-size: 3rem;
   }
 
-  .hero p {
+  .hero-text {
     font-size: 1.4rem;
     max-width: 90%;
   }
 
-  .products, .about-section, .projects-section, .contact-section, .xeriscoin-section {
+  .products, .about-section, .projects-section, .contact-section {
     padding: 3rem 1rem;
   }
 
-  .products h2, .about-title, .projects-title, .contact-title, .xeriscoin-title {
+  .products-title, .about-title, .projects-title, .contact-title {
     font-size: 2rem;
   }
 

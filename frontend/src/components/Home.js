@@ -3,20 +3,15 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <section className="home-section">
-      <h2 className="home-title">Xeris Web Co.: Craft Your Digital Vision</h2>
-      <p className="home-text">
-        We build stunning, responsive websites tailored to your business. Founded by Zachary, who created *ZeroMart* in 4 hours, we deliver excellence for startups and enterprises.
-      </p>
-      <p className="home-text">
-        <strong>X-POD</strong>: Our health AI transforms wellness with personalized solutions, targeting a $55M impact.
-      </p>
-      <p className="home-text">
-        <strong>XerisCoin ($XERIS)</strong>: A DeFi token on Binance Smart Chain, powering health rewards. Join our presale now!
+    <section className="hero">
+      <div className="hero-bg"></div>
+      <h1 className="hero-title">Xeris Web Co.: Build Epic Digital Futures</h1>
+      <p className="hero-text">
+        We craft jaw-dropping websites with *ZeroMart* speed (built in 4 hours). Join the revolution with <strong>X-POD</strong> (health AI, $55M vision) and <strong>XerisCoin ($XERIS)</strong>, a DeFi token for health rewards.
       </p>
       <div className="button-group">
-        <Link to="/contact" className="cta-btn glowing-btn">Get a Website</Link>
-        <Link to="/xeriscoin" className="cta-btn glowing-btn">Explore XerisCoin</Link>
+        <Link to="/contact" className="cta-button">Get Your Website</Link>
+        <Link to="/xeriscoin" className="cta-button">Join XerisCoin Presale</Link>
       </div>
     </section>
   );
