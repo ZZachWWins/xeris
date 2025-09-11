@@ -340,3 +340,212 @@ body {
     font-size: 0.9rem;
   }
 }
+```css
+/* XerisCoin Section Styles - Full-width, gradient background for appeal */
+.xeriscoin-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.xeriscoin-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://res.cloudinary.com/your-cloudinary/starry-pattern.png') repeat; /* Add a starry pattern image if available */
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Title with neon glow and animation */
+.xeriscoin-title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #32cd32, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(50, 205, 50, 0.7);
+  margin-bottom: 1rem;
+  animation: glowPulse 2s infinite alternate;
+}
+
+/* Text with better readability */
+.xeriscoin-text {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* Details container as flex for side-by-side cards on larger screens */
+.xeriscoin-details {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Card styling for tokenomics and roadmap */
+.detail-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(50, 205, 50, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(50, 205, 50, 0.5);
+}
+
+/* Subtitle styling */
+.landing-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+/* List styling */
+.scripture-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.scripture-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.scripture-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #32cd32;
+  font-weight: bold;
+}
+
+/* Glowing button enhancements */
+.glowing-btn {
+  position: relative;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #32cd32, #ffd700);
+  color: #0a0a0a;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.glowing-btn:hover {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.glowing-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glowing-btn:hover::after {
+  opacity: 1;
+}
+
+/* Countdown styles - Urgent and eye-catching */
+.countdown-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.countdown-title {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.countdown-item {
+  background: rgba(50, 205, 50, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 80px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(50, 205, 50, 0.3);
+}
+
+.countdown-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #32cd32;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px rgba(50, 205, 50, 0.5); }
+  to { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .xeriscoin-title {
+    font-size: 2.5rem;
+  }
+  .xeriscoin-details {
+    flex-direction: column;
+    align-items: center;
+  }
+  .countdown-timer {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .countdown-item {
+    min-width: 60px;
+    padding: 0.8rem;
+  }
+}
+```
