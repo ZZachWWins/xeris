@@ -3,9 +3,9 @@ import React from 'react';
 function XerisCoin() {
   return (
     <section className="xeriscoin-section">
-      <h2 className="xeriscoin-title">XerisCoin: Health Meets DeFi</h2>
+      <h2 className="xeriscoin-title">XerisCoin: Revolutionizing DeFi with Triple Consensus</h2>
       <p className="xeriscoin-text">
-        XerisCoin ($XERIS) is a BEP-20 token on Binance Smart Chain, powering a decentralized app that rewards fitness and nutrition goals. Join the presale at $0.01/XERIS!
+        XerisCoin ($XERIS) is a groundbreaking BEP-20 token on Binance Smart Chain, utilizing a unique triple consensus mechanism (Proof of Work, Proof of History, Proof of Stake). Our dApp rewards users for achieving fitness and nutrition goals, merging health and DeFi. Join the presale at $0.01/XERIS!
       </p>
       <div className="xeriscoin-details">
         <h3 className="landing-subtitle">Tokenomics</h3>
@@ -19,8 +19,8 @@ function XerisCoin() {
         <h3 className="landing-subtitle">Roadmap</h3>
         <ul className="scripture-list">
           <li>Q4 2025: Presale launch</li>
-          <li>Q1 2026: dApp beta release</li>
-          <li>Q2 2026: List on PancakeSwap</li>
+          <li>Q1 2026: dApp beta release with triple consensus integration</li>
+          <li>Q2 2026: List on PancakeSwap and major exchanges</li>
         </ul>
       </div>
       <div className="button-group">

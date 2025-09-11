@@ -7,10 +7,10 @@ function About() {
       <div className="about-content">
         <h2 className="about-title">About Xeris Web Co.</h2>
         <p className="about-text">
-          Led by Zachary, who built *ZeroMart* in 4 hours and launched *X-POD* (a $55M health AI vision), Xeris Web Co. creates responsive, modern websites that empower businesses.
+          Led by visionary Zachary, Xeris Web Co. is a global leader in AI and blockchain technology. Our flagship project, <strong>X-POD</strong>, leverages AI to deliver personalized health solutions, backed by a $55M vision.
         </p>
         <p className="about-text">
-          We’re pioneering the future with <strong>X-POD</strong> (health AI for personalized wellness) and <strong>XerisCoin ($XERIS)</strong>, a DeFi token on Binance Smart Chain rewarding health goals via a cutting-edge dApp.
+          With <strong>XerisCoin ($XERIS)</strong>, we introduce the world's first triple consensus (PoW, PoH, PoS) BEP-20 token on Binance Smart Chain, powering a decentralized app that rewards health and wellness achievements.
         </p>
         <Link to="/xeriscoin" className="cta-btn glowing-btn">Discover XerisCoin</Link>
       </div>
