@@ -19,6 +19,7 @@ function Footer() {
             <li><a href="/about" className="footer-link">About</a></li>
             <li><a href="/projects" className="footer-link">Projects</a></li>
             <li><a href="/xeriscoin" className="footer-link">XerisCoin</a></li>
+            <li><a href="/data" className="footer-link">Data</a></li> {/* New link */}
             <li><a href="/contact" className="footer-link">Contact</a></li>
           </ul>
         </div>

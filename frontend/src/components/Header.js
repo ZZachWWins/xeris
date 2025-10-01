@@ -43,6 +43,9 @@ function Header() {
         <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
           <Link to="/xeriscoin" className={`nav-link ${window.location.pathname === '/xeriscoin' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>XerisCoin</Link>
         </Tilt>
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
+          <Link to="/data" className={`nav-link ${window.location.pathname === '/data' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Data</Link> {/* New link */}
+        </Tilt>
       </nav>
       <div className="mobile-nav-toggle" onClick={toggleMenu}>
         {showMenu ? <FaTimes className="menu-icon" /> : <FaBars className="menu-icon" />}
