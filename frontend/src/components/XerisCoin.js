@@ -31,7 +31,7 @@ function XerisCoin() {
     <section className="xeriscoin-section">
       <h2 className="xeriscoin-title">XerisCoin: Revolutionizing Payments</h2>
       <p className="xeriscoin-text">
-        <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), is a native token on our own Layer 1 blockchain, delivering 10,000+ TPS with a triple consensus (PoW, PoH, PoS). Our testnet, completed in Q3 2025, achieved 100% uptime. Join the presale at $0.01/XERIS to disrupt the $7T payments market!
+        <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), is a native token on our Layer 1 blockchain, delivering 10,000+ TPS with a triple consensus (PoW, PoH, PoS). Our Q3 2025 testnet achieved 100% uptime. Presale of 10M tokens will fund 1-10M wrapped XERIS for DEX liquidity to establish market value.
       </p>
       <div className="countdown-container">
         <h3 className="countdown-title">Presale Ends In</h3>
@@ -59,16 +59,16 @@ function XerisCoin() {
         <div className="progress-bar">
           <div className="progress-fill" style={{ width: `${presaleProgress}%` }}></div>
         </div>
-        <p className="progress-text">{presaleProgress}% of 350M XERIS tokens sold</p>
+        <p className="progress-text">{presaleProgress}% of 10M XERIS tokens sold</p>
       </div>
       <div className="xeriscoin-details">
         <div className="detail-card">
           <h3 className="landing-subtitle">Tokenomics</h3>
           <ul className="scripture-list">
             <li>Total Supply: 700M XERIS</li>
-            <li>Presale: 50% (350M tokens)</li>
-            <li>Treasury: 20% (140M, locked)</li>
-            <li>Mining: 30% (210M, halving every 2 years)</li>
+            <li>Presale: 10M tokens (from 200M trust wallet)</li>
+            <li>Treasury: 190M (locked)</li>
+            <li>Mining: 500M (halving every 2 years)</li>
           </ul>
         </div>
         <div className="detail-card">
@@ -76,7 +76,7 @@ function XerisCoin() {
           <ul className="scripture-list">
             <li>Q3 2025: Testnet completed with 10,000+ TPS</li>
             <li>Q4 2025: Mainnet launch and presale</li>
-            <li>Q1 2026: dApp beta with merchant integration</li>
+            <li>Q1 2026: 1-10M wXRS on DEX for liquidity</li>
             <li>Q2 2026: List on major exchanges</li>
           </ul>
         </div>
