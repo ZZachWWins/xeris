@@ -1,4 +1,6 @@
+// Updated XerisCoin.js
 import React, { useState, useEffect } from 'react';
+import { FaCoins, FaMap, FaTelegram, FaExternalLinkAlt } from 'react-icons/fa';
 
 function XerisCoin() {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -63,6 +65,7 @@ function XerisCoin() {
       </div>
       <div className="xeriscoin-details">
         <div className="detail-card">
+          <FaCoins className="detail-icon" />
           <h3 className="landing-subtitle">Tokenomics</h3>
           <ul className="scripture-list">
             <li>Total Supply: 700M XERIS</li>
@@ -72,6 +75,7 @@ function XerisCoin() {
           </ul>
         </div>
         <div className="detail-card">
+          <FaMap className="detail-icon" />
           <h3 className="landing-subtitle">Roadmap</h3>
           <ul className="scripture-list">
             <li>Q3 2025: Testnet completed with 10,000+ TPS</li>
@@ -82,8 +86,12 @@ function XerisCoin() {
         </div>
       </div>
       <div className="button-group">
-        <a href="https://t.me/XerisCoin" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">Join Telegram</a>
-        <a href="https://www.xerisweb.com/presale" className="cta-btn glowing-btn">Join Presale</a>
+        <a href="https://t.me/XerisCoin" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">
+          <FaTelegram className="btn-icon" /> Join Telegram
+        </a>
+        <a href="https://www.xerisweb.com/presale" className="cta-btn glowing-btn">
+          <FaExternalLinkAlt className="btn-icon" /> Join Presale
+        </a>
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
+// Updated Home.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaTrophy, FaFileAlt, FaRocket } from 'react-icons/fa';
 
 function Home() {
   return (
@@ -8,7 +10,7 @@ function Home() {
       <div className="hero-content">
         <h1 className="hero-title">Xeris Web Co.: Redefining Payments</h1>
         <p className="hero-text">
-          <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), powers our Layer 1 blockchain with a triple consensus (PoW, PoH, PoS) for 10,000+ TPS. Testnet completed Q3 2025 with 100% uptime. Join our presale of 10M tokens to fund DEX liquidity and revolutionize payments with <strong>X-POD</strong>!
+          <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), powers our Layer 1 blockchain with a triple consensus (PoW, PoH, PoS) for 10,000+ TPS. Testnet completed Q3 2025 with 100% uptime. Join our presale of 10M tokens to fund DEX liquidity and revolutionize payments!
         </p>
         <div className="button-group">
           <Link to="/projects" className="cta-button">Explore Innovations</Link>
@@ -19,14 +21,17 @@ function Home() {
         <h2 className="milestones-title">Our Achievements</h2>
         <div className="milestones-grid">
           <div className="milestone-card">
+            <FaTrophy className="milestone-icon" />
             <h3>Testnet Success</h3>
             <p>Completed Q3 2025 with 10,000+ TPS and 100% uptime.</p>
           </div>
           <div className="milestone-card">
+            <FaFileAlt className="milestone-icon" />
             <h3>Patent Pending</h3>
             <p>Filed US Provisional Application #63/887,511 for triple consensus.</p>
           </div>
           <div className="milestone-card">
+            <FaRocket className="milestone-icon" />
             <h3>Presale Launched</h3>
             <p>Offering 10M XERIS from trust wallet to seed DEX liquidity.</p>
           </div>
