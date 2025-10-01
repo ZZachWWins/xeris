@@ -1,6 +1,6 @@
 // Updated Projects.js
 import React from 'react';
-import { FaSearch, FaBrain, FaEnvelope } from 'react-icons/fa'; // Using react-icons
+import { FaSearch, FaBrain, FaEnvelope, FaRocket } from 'react-icons/fa'; // Added FaRocket to import
 
 function Projects() {
   return (
