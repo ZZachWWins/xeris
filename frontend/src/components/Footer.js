@@ -1,6 +1,6 @@
-// Updated Footer.js
+// Updated Footer.js with real social links and react-icons
 import React from 'react';
-import { FaTwitter, FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'; // Assuming react-icons is installed; add if not
+import { FaTwitter, FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 function Footer() {
   return (
@@ -26,16 +26,16 @@ function Footer() {
           <h4>Connect</h4>
           <div className="social-icons">
             <a
-              href="https://twitter.com"
+              href="https://x.com/ZWinkle82162"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon twitter"
-              aria-label="Visit our Twitter"
+              aria-label="Visit our X (Twitter)"
             >
               <FaTwitter className="icon" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/zachary-winkle-706594346/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"
@@ -44,7 +44,7 @@ function Footer() {
               <FaLinkedin className="icon" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/ZZachWWins/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon github"
