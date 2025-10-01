@@ -5,13 +5,15 @@ function Home() {
   return (
     <section className="hero">
       <div className="hero-bg"></div>
-      <h1 className="hero-title">Xeris Web Co.: Redefining Payments with XerisCoin</h1>
-      <p className="hero-text">
-        <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), powers our Layer 1 blockchain with a triple consensus (PoW, PoH, PoS) for 10,000+ TPS. Testnet completed Q3 2025 with 100% uptime. Join our presale of 10M tokens to fund DEX liquidity and revolutionize payments with <strong>X-POD</strong>!
-      </p>
-      <div className="button-group">
-        <Link to="/projects" className="cta-button">Explore Our Innovations</Link>
-        <Link to="/xeriscoin" className="cta-button glowing-btn">Join XerisCoin Presale</Link>
+      <div className="hero-content">
+        <h1 className="hero-title">Xeris Web Co.: Redefining Payments</h1>
+        <p className="hero-text">
+          <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), powers our Layer 1 blockchain with a triple consensus (PoW, PoH, PoS) for 10,000+ TPS. Testnet completed Q3 2025 with 100% uptime. Join our presale of 10M tokens to fund DEX liquidity and revolutionize payments with <strong>X-POD</strong>!
+        </p>
+        <div className="button-group">
+          <Link to="/projects" className="cta-button">Explore Innovations</Link>
+          <Link to="/xeriscoin" className="cta-button glowing-btn">Join Presale</Link>
+        </div>
       </div>
       <div className="milestones-section">
         <h2 className="milestones-title">Our Achievements</h2>
