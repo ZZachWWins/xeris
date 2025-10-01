@@ -7,10 +7,10 @@ function About() {
       <div className="about-content">
         <h2 className="about-title">About Xeris Web Co.</h2>
         <p className="about-text">
-          Led by visionary Zachary, Xeris Web Co. is a global leader in AI and blockchain technology. Our flagship project, <strong>X-POD</strong>, leverages AI to deliver personalized health solutions, backed by a $55M vision.
+          Led by Zachary Winkle, Xeris Web Co. is pioneering global payments with <strong>XerisCoin ($XERIS)</strong>, a patent-pending (US #63/887,511) native token on our own Layer 1 blockchain. With a triple consensus (PoW, PoH, PoS) delivering 10,000+ TPS, our testnet achieved 100% uptime in Q3 2025.
         </p>
         <p className="about-text">
-          With <strong>XerisCoin ($XERIS)</strong>, we introduce the world's first triple consensus (PoW, PoH, PoS) BEP-20 token on Binance Smart Chain, powering a decentralized app that rewards health and wellness achievements.
+          Our <strong>X-POD</strong> platform leverages AI for personalized health solutions, targeting a $7T market. Starting with Texas merchants, we’re building a decentralized ecosystem. Join our presale to shape the future of payments and health tech!
         </p>
         <Link to="/xeriscoin" className="cta-btn glowing-btn">Discover XerisCoin</Link>
       </div>

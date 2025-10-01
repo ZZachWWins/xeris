@@ -135,7 +135,7 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-.cta-button {
+.cta-button, .cta-btn {
   padding: 1rem 3rem;
   font-size: 1.4rem;
   font-weight: 700;
@@ -146,9 +146,11 @@ body {
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(50, 205, 50, 0.5);
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.cta-button:hover {
+.cta-button:hover, .cta-btn:hover {
   transform: scale(1.1) rotate(2deg);
   box-shadow: 0 12px 30px rgba(255, 215, 0, 0.7);
 }
@@ -159,7 +161,7 @@ body {
   justify-content: center;
 }
 
-.products, .about-section, .projects-section, .contact-section {
+.products, .about-section, .projects-section, .contact-section, .xeriscoin-section {
   padding: 5rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -168,7 +170,7 @@ body {
   backdrop-filter: blur(10px);
 }
 
-.products-title, .about-title, .projects-title, .contact-title {
+.products-title, .about-title, .projects-title, .contact-title, .xeriscoin-title, .milestones-title {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 4rem;
@@ -178,214 +180,69 @@ body {
   color: transparent;
 }
 
-.product-grid {
+.milestones-section {
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.milestones-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
-.product-card {
+.milestone-card {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.4s ease;
-  backdrop-filter: blur(8px);
-}
-
-.product-card:hover {
-  transform: translateY(-15px) rotateX(10deg);
-  box-shadow: 0 15px 40px rgba(50, 205, 50, 0.4);
-  border-color: #ffd700;
-}
-
-.product-image {
-  width: 100%;
-  height: 180px;
   border-radius: 15px;
-  margin-bottom: 1.5rem;
-  background-size: cover;
-}
-
-.product-card h3 {
-  font-size: 1.8rem;
-  color: #fff;
-  margin-bottom: 0.8rem;
-}
-
-.product-card p {
-  font-size: 1.2rem;
-  color: #ffd700;
-}
-
-.about-content, .contact-form {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.about-text {
-  font-size: 1.2rem;
-  color: #fff;
-  line-height: 1.6;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-form input, .contact-form textarea {
-  padding: 1rem;
-  border: none;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-}
-
-.contact-form textarea {
-  min-height: 150px;
-}
-
-.submit-btn {
-  padding: 1rem 3rem;
-  font-size: 1.4rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, #ffd700, #32cd32);
-  color: #0a0a0a;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(50, 205, 50, 0.5);
-  transition: all 0.3s ease;
-}
-
-.submit-btn:hover {
-  transform: scale(1.1) rotate(2deg);
-  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.7);
-}
-
-.footer {
-  padding: 4rem 2rem;
-  background: rgba(10, 10, 10, 0.9);
+  padding: 1.5rem;
   text-align: center;
-  border-top: 1px solid rgba(50, 205, 50, 0.3);
+  transition: transform 0.3s ease;
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.milestone-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(50, 205, 50, 0.3);
 }
 
-.footer-text {
-  font-size: 1.3rem;
+.milestone-card h3 {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.milestone-card p {
+  font-size: 1.1rem;
   color: #ccc;
 }
 
-.social-icons {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-icon {
-  width: 30px;
-  height: 30px;
-  background-size: contain;
-}
-
-.twitter { background: url('https://res.cloudinary.com/your-cloudinary/twitter.png'); }
-.linkedin { background: url('https://res.cloudinary.com/your-cloudinary/linkedin.png'); }
-.github { background: url('https://res.cloudinary.com/your-cloudinary/github.png'); }
-
-.footer-link {
-  color: #32cd32;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-  color: #ffd700;
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-
-  .hero-text {
-    font-size: 1.4rem;
-    max-width: 90%;
-  }
-
-  .products, .about-section, .projects-section, .contact-section {
-    padding: 3rem 1rem;
-  }
-
-  .products-title, .about-title, .projects-title, .contact-title {
-    font-size: 2rem;
-  }
-
-  .nav {
-    gap: 1rem;
-  }
-
-  .nav-link {
-    font-size: 0.9rem;
-  }
-}
-```css
-/* XerisCoin Section Styles - Full-width, gradient background for appeal */
-.xeriscoin-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  position: relative;
-  overflow: hidden;
+.presale-progress {
+  max-width: 600px;
+  margin: 2rem auto;
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
 }
 
-.xeriscoin-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://res.cloudinary.com/your-cloudinary/starry-pattern.png') repeat; /* Add a starry pattern image if available */
-  opacity: 0.1;
-  z-index: -1;
+.progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(50, 205, 50, 0.3);
 }
 
-/* Title with neon glow and animation */
-.xeriscoin-title {
-  font-size: 3rem;
-  font-weight: 800;
+.progress-fill {
   background: linear-gradient(45deg, #32cd32, #ffd700);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 15px rgba(50, 205, 50, 0.7);
-  margin-bottom: 1rem;
-  animation: glowPulse 2s infinite alternate;
+  height: 100%;
+  transition: width 0.5s ease;
 }
 
-/* Text with better readability */
-.xeriscoin-text {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  line-height: 1.6;
-  color: #ddd;
+.progress-text {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-top: 0.5rem;
 }
 
-/* Details container as flex for side-by-side cards on larger screens */
 .xeriscoin-details {
   display: flex;
   justify-content: center;
@@ -393,7 +250,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Card styling for tokenomics and roadmap */
 .detail-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(50, 205, 50, 0.3);
@@ -409,7 +265,6 @@ body {
   box-shadow: 0 8px 25px rgba(50, 205, 50, 0.5);
 }
 
-/* Subtitle styling */
 .landing-subtitle {
   font-size: 1.8rem;
   font-weight: 600;
@@ -418,7 +273,6 @@ body {
   text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
 }
 
-/* List styling */
 .scripture-list {
   list-style: none;
   padding: 0;
@@ -441,7 +295,6 @@ body {
   font-weight: bold;
 }
 
-/* Glowing button enhancements */
 .glowing-btn {
   position: relative;
   padding: 1rem 2rem;
@@ -476,7 +329,6 @@ body {
   opacity: 1;
 }
 
-/* Countdown styles - Urgent and eye-catching */
 .countdown-container {
   margin: 2rem 0;
   padding: 1.5rem;
@@ -519,19 +371,19 @@ body {
   color: #ccc;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes glowPulse {
   from { text-shadow: 0 0 10px rgba(50, 205, 50, 0.5); }
   to { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-text {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
   .xeriscoin-title {
     font-size: 2.5rem;
   }

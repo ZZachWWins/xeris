@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function XerisCoin() {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const presaleProgress = 0; // No funds raised yet
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -11,7 +12,7 @@ function XerisCoin() {
   }, []);
 
   function calculateTimeLeft() {
-    const difference = +new Date('2025-10-01T00:00:00') - +new Date();
+    const difference = +new Date('2025-10-31T00:00:00') - +new Date();
     let timeLeft = {};
     if (difference > 0) {
       timeLeft = {
@@ -28,12 +29,12 @@ function XerisCoin() {
 
   return (
     <section className="xeriscoin-section">
-      <h2 className="xeriscoin-title">XerisCoin: Revolutionizing DeFi with Triple Consensus</h2>
+      <h2 className="xeriscoin-title">XerisCoin: Revolutionizing Payments</h2>
       <p className="xeriscoin-text">
-        XerisCoin ($XERIS) is a groundbreaking BEP-20 token on Binance Smart Chain, utilizing a unique triple consensus mechanism (Proof of Work, Proof of History, Proof of Stake). Our dApp rewards users for achieving fitness and nutrition goals, merging health and DeFi. Join the presale at $0.01/XERIS!
+        <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), is a native token on our own Layer 1 blockchain, delivering 10,000+ TPS with a triple consensus (PoW, PoH, PoS). Our testnet, completed in Q3 2025, achieved 100% uptime. Join the presale at $0.01/XERIS to disrupt the $7T payments market!
       </p>
       <div className="countdown-container">
-        <h3 className="countdown-title">Presale Launches In</h3>
+        <h3 className="countdown-title">Presale Ends In</h3>
         <div className="countdown-timer">
           <div className="countdown-item">
             <span className="countdown-value">{timeLeft.days}</span>
@@ -53,23 +54,30 @@ function XerisCoin() {
           </div>
         </div>
       </div>
+      <div className="presale-progress">
+        <h3 className="landing-subtitle">Presale Progress</h3>
+        <div className="progress-bar">
+          <div className="progress-fill" style={{ width: `${presaleProgress}%` }}></div>
+        </div>
+        <p className="progress-text">{presaleProgress}% of 350M XERIS tokens sold</p>
+      </div>
       <div className="xeriscoin-details">
         <div className="detail-card">
           <h3 className="landing-subtitle">Tokenomics</h3>
           <ul className="scripture-list">
-            <li>Total Supply: 1B XERIS</li>
-            <li>Presale: 50% (500M tokens)</li>
-            <li>Team: 20% (locked 1 year)</li>
-            <li>Development: 20%</li>
-            <li>Marketing: 10%</li>
+            <li>Total Supply: 700M XERIS</li>
+            <li>Presale: 50% (350M tokens)</li>
+            <li>Treasury: 20% (140M, locked)</li>
+            <li>Mining: 30% (210M, halving every 2 years)</li>
           </ul>
         </div>
         <div className="detail-card">
           <h3 className="landing-subtitle">Roadmap</h3>
           <ul className="scripture-list">
-            <li>Q4 2025: Presale launch</li>
-            <li>Q1 2026: dApp beta release with triple consensus integration</li>
-            <li>Q2 2026: List on PancakeSwap and major exchanges</li>
+            <li>Q3 2025: Testnet completed with 10,000+ TPS</li>
+            <li>Q4 2025: Mainnet launch and presale</li>
+            <li>Q1 2026: dApp beta with merchant integration</li>
+            <li>Q2 2026: List on major exchanges</li>
           </ul>
         </div>
       </div>
