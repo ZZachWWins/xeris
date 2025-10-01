@@ -14,7 +14,7 @@ import {
   ArcElement
 } from 'chart.js';
 import { Bar, Line, Doughnut } from 'react-chartjs-2';
-import { FaDownload, FaChartBar, FaChartLine, FaPieChartAlt } from 'react-icons/fa';
+import { FaChartBar, FaChartLine, FaPieChartAlt } from 'react-icons/fa';
 
 ChartJS.register(
   CategoryScale,
