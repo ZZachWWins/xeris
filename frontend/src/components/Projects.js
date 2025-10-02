@@ -1,6 +1,6 @@
 // Updated Projects.js
 import React from 'react';
-import { FaSearch, FaBrain, FaEnvelope, FaRocket } from 'react-icons/fa';
+import { FaSearch, FaBrain, FaEnvelope } from 'react-icons/fa'; // Fixed: Removed unused FaRocket
 
 function Projects() {
   return (
