@@ -44,6 +44,7 @@ function Data() {
 
   const halvingOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -73,6 +74,7 @@ function Data() {
 
   const tamOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -97,6 +99,7 @@ function Data() {
 
   const problemOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -131,6 +134,7 @@ function Data() {
 
   const tpsOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -149,7 +153,7 @@ function Data() {
     }
   };
 
-  // New: Competitor TPS Bar Chart (Page 5 table)
+  // Competitor TPS Bar Chart (Page 5 table: Linear scale for compatibility)
   const competitorTpsData = {
     labels: ['Bitcoin', 'Ethereum', 'Solana', 'XRS'],
     datasets: [{
@@ -163,7 +167,8 @@ function Data() {
 
   const competitorTpsOptions = {
     responsive: true,
-    indexAxis: 'y', // Horizontal bars for readability
+    maintainAspectRatio: false,
+    indexAxis: 'y', // Horizontal bars
     plugins: {
       title: {
         display: true,
@@ -174,8 +179,7 @@ function Data() {
     scales: {
       x: {
         beginAtZero: true,
-        type: 'logarithmic', // Log scale for wide range (7 to 65K)
-        title: { display: true, text: 'TPS (Log Scale)', color: '#fff' },
+        title: { display: true, text: 'TPS', color: '#fff' },
         grid: { color: 'rgba(50, 205, 50, 0.2)' }
       },
       y: {
@@ -184,7 +188,7 @@ function Data() {
     }
   };
 
-  // New: Revenue Streams Stacked Bar (Page 15 table)
+  // Revenue Streams Stacked Bar (Page 15 table)
   const revenueData = {
     labels: ['Year 1 (2025)', 'Year 2 (2026)', 'Year 3 (2027)'],
     datasets: [
@@ -213,6 +217,7 @@ function Data() {
 
   const revenueOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -235,7 +240,7 @@ function Data() {
     }
   };
 
-  // New: Market Cap Projection Line (Page 14 table)
+  // Market Cap Projection Line (Page 14 table: Simplified single scale, users in M)
   const marketCapData = {
     labels: ['2025', '2026', '2027'],
     datasets: [
@@ -249,8 +254,8 @@ function Data() {
         yAxisID: 'y'
       },
       {
-        label: 'Users (K)',
-        data: [10, 1000, 10000],
+        label: 'Users (M)',
+        data: [0.01, 1, 10], // Normalized to M for scale
         borderColor: '#32cd32',
         backgroundColor: 'rgba(50, 205, 50, 0.1)',
         fill: true,
@@ -262,6 +267,7 @@ function Data() {
 
   const marketCapOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -275,18 +281,29 @@ function Data() {
         display: true,
         position: 'left',
         title: { display: true, text: 'Market Cap ($M)', color: '#ffd700' },
+        beginAtZero: true,
         grid: { color: 'rgba(255, 215, 0, 0.1)' }
       },
       y1: {
         type: 'linear',
         display: true,
         position: 'right',
-        title: { display: true, text: 'Users (K)', color: '#32cd32' },
+        title: { display: true, text: 'Users (M)', color: '#32cd32' },
+        beginAtZero: true,
         grid: { drawOnChartArea: false }
       },
       x: {
         grid: { color: 'rgba(255, 215, 0, 0.1)' }
       }
+    }
+  };
+
+  const renderChart = (chart, fallbackText = 'Chart unavailable') => {
+    try {
+      return chart;
+    } catch (error) {
+      console.error('Chart render error:', error);
+      return <p style={{ color: '#ccc', textAlign: 'center' }}>{fallbackText}</p>;
     }
   };
 
@@ -302,7 +319,9 @@ function Data() {
         <div className="chart-card">
           <FaChartLine className="chart-icon" />
           <h3 className="chart-title">Tokenomics: Halving Schedule</h3>
-          <Line data={halvingData} options={halvingOptions} />
+          <div style={{ height: '400px' }}>
+            {renderChart(<Line data={halvingData} options={halvingOptions} />)}
+          </div>
           <p className="chart-caption">Capped at 700M XRS with halvings every 2 years for scarcity (geometric series: Σ 342.5 × 730K × (1/2)^n = 500M mineable).</p>
         </div>
 
@@ -310,7 +329,9 @@ function Data() {
         <div className="chart-card">
           <FaChartPie className="chart-icon" />
           <h3 className="chart-title">Market Opportunity</h3>
-          <Doughnut data={tamData} options={tamOptions} />
+          <div style={{ height: '400px' }}>
+            {renderChart(<Doughnut data={tamData} options={tamOptions} />)}
+          </div>
           <p className="chart-caption">$15T+ total (Payments + DeFi + NFTs + Healthcare)—XRS captures via Texas-first adoption.</p>
         </div>
 
@@ -318,7 +339,9 @@ function Data() {
         <div className="chart-card">
           <FaChartBar className="chart-icon" />
           <h3 className="chart-title">Payments Problems</h3>
-          <Bar data={problemData} options={problemOptions} />
+          <div style={{ height: '400px' }}>
+            {renderChart(<Bar data={problemData} options={problemOptions} />)}
+          </div>
           <p className="chart-caption">Annual costs: $700B fees, $1.2T delays, $2T exclusion.</p>
         </div>
 
@@ -326,31 +349,39 @@ function Data() {
         <div className="chart-card">
           <FaChartLine className="chart-icon" />
           <h3 className="chart-title">Performance Projections</h3>
-          <Line data={tpsData} options={tpsOptions} />
+          <div style={{ height: '400px' }}>
+            {renderChart(<Line data={tpsData} options={tpsOptions} />)}
+          </div>
           <p className="chart-caption">Scaling to 65K TPS by 2030 via hybrid consensus (PoH slots + PoW/PoS).</p>
         </div>
 
-        {/* New: Competitor TPS Bar */}
+        {/* Competitor TPS Bar */}
         <div className="chart-card">
           <FaChartBar className="chart-icon" />
           <h3 className="chart-title">TPS vs Competitors</h3>
-          <Bar data={competitorTpsData} options={competitorTpsOptions} />
+          <div style={{ height: '400px' }}>
+            {renderChart(<Bar data={competitorTpsData} options={competitorTpsOptions} />)}
+          </div>
           <p className="chart-caption">XRS balances Solana speed with Bitcoin security (Page 5 comparison).</p>
         </div>
 
-        {/* New: Revenue Streams Stacked Bar */}
+        {/* Revenue Streams Stacked Bar */}
         <div className="chart-card">
           <FaChartBar className="chart-icon" />
           <h3 className="chart-title">Revenue Projections</h3>
-          <Bar data={revenueData} options={revenueOptions} />
+          <div style={{ height: '400px' }}>
+            {renderChart(<Bar data={revenueData} options={revenueOptions} />)}
+          </div>
           <p className="chart-caption">Stacked by source: $200K staking Year 1 → $100M total Year 3 (5% APY, 0.1% fees, etc.).</p>
         </div>
 
-        {/* New: Market Cap Line */}
+        {/* Market Cap Line */}
         <div className="chart-card">
           <FaChartLine className="chart-icon" />
           <h3 className="chart-title">Market Cap & Users</h3>
-          <Line data={marketCapData} options={marketCapOptions} />
+          <div style={{ height: '400px' }}>
+            {renderChart(<Line data={marketCapData} options={marketCapOptions} />)}
+          </div>
           <p className="chart-caption">$10M cap (10K users) in 2025 → $1B (10M users) in 2027 (conservative model).</p>
         </div>
       </div>
