@@ -14,7 +14,7 @@ import {
   ArcElement
 } from 'chart.js';
 import { Bar, Line, Doughnut } from 'react-chartjs-2';
-import { FaChartBar, FaChartLine, FaPieChartAlt } from 'react-icons/fa';
+import { FaChartBar, FaChartLine, FaChartPie } from 'react-icons/fa'; // Fixed: FaPieChartAlt → FaChartPie
 
 ChartJS.register(
   CategoryScale,
@@ -167,7 +167,7 @@ function Data() {
 
         {/* Market TAM Doughnut */}
         <div className="chart-card">
-          <FaPieChartAlt className="chart-icon" />
+          <FaChartPie className="chart-icon" /> {/* Fixed: FaPieChartAlt → FaChartPie */}
           <h3 className="chart-title">Market Opportunity</h3>
           <Doughnut data={tamData} options={tamOptions} />
           <p className="chart-caption">$5T payments + $2T DeFi + $50B NFTs—XRS captures it all.</p>
