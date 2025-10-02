@@ -14,7 +14,7 @@ import {
   ArcElement
 } from 'chart.js';
 import { Bar, Line, Doughnut } from 'react-chartjs-2';
-import { FaChartBar, FaChartLine, FaChartPie } from 'react-icons/fa'; // Fixed: FaPieChartAlt → FaChartPie
+import { FaChartBar, FaChartLine, FaChartPie } from 'react-icons/fa';
 
 ChartJS.register(
   CategoryScale,
@@ -29,7 +29,7 @@ ChartJS.register(
 );
 
 function Data() {
-  // Tokenomics Halving Chart Data
+  // Tokenomics Halving Chart Data (Page 7: Rewards halving every 730K blocks)
   const halvingData = {
     labels: ['Era 0 (Now)', 'Era 1 (2 yrs)', 'Era 2 (4 yrs)', 'Era 3 (6 yrs)', 'Era 4 (8 yrs)'],
     datasets: [{
@@ -47,7 +47,7 @@ function Data() {
     plugins: {
       title: {
         display: true,
-        text: 'XRS Halving Schedule: Deflationary Path to 700M Cap',
+        text: 'XRS Halving Schedule: Deflationary Path to 700M Cap (Σ 342.5 × 730K × (1/2)^n = 500M Mineable)',
         color: '#32cd32'
       }
     },
@@ -62,12 +62,12 @@ function Data() {
     }
   };
 
-  // Market TAM Doughnut Chart Data
+  // Updated Market TAM Doughnut Chart Data (Page 9: Added Healthcare $8T)
   const tamData = {
-    labels: ['Global Payments', 'DeFi', 'NFTs'],
+    labels: ['Global Payments ($5T)', 'DeFi ($2T)', 'NFTs ($50B)', 'Healthcare ($8T)'],
     datasets: [{
-      data: [5000, 2000, 50],
-      backgroundColor: ['#32cd32', '#ffd700', '#800080']
+      data: [5000, 2000, 50, 8000],
+      backgroundColor: ['#32cd32', '#ffd700', '#800080', '#ff4500']
     }]
   };
 
@@ -76,14 +76,14 @@ function Data() {
     plugins: {
       title: {
         display: true,
-        text: 'XRS Market Opportunity ($B)',
+        text: 'XRS Market Opportunity ($T)',
         color: '#fff'
       },
       legend: { position: 'bottom' }
     }
   };
 
-  // Problem Metrics Bar Chart Data (from whitepaper table)
+  // Problem Metrics Bar Chart Data (Page 1 table)
   const problemData = {
     labels: ['Cross-Border Fees', 'Settlement Delays', 'Unbanked Exclusion'],
     datasets: [{
@@ -116,12 +116,12 @@ function Data() {
     }
   };
 
-  // TPS Projection Line Chart Data
+  // Extended TPS Projection Line Chart Data (Page 6 figure: To 65K TPS by 2030)
   const tpsData = {
-    labels: ['Q3 2025', 'Q4 2025', 'Q1 2026', 'Q2 2026', 'Q3 2026'],
+    labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
     datasets: [{
       label: 'TPS Achieved',
-      data: [10000, 15000, 25000, 40000, 65000],
+      data: [10000, 20000, 40000, 50000, 58000, 65000],
       borderColor: '#32cd32',
       backgroundColor: 'rgba(50, 205, 50, 0.1)',
       fill: true,
@@ -134,7 +134,7 @@ function Data() {
     plugins: {
       title: {
         display: true,
-        text: 'XerisCoin Scalability Roadmap',
+        text: 'XerisCoin Scalability Roadmap (65K TPS Potential)',
         color: '#ffd700'
       }
     },
@@ -149,11 +149,152 @@ function Data() {
     }
   };
 
+  // New: Competitor TPS Bar Chart (Page 5 table)
+  const competitorTpsData = {
+    labels: ['Bitcoin', 'Ethereum', 'Solana', 'XRS'],
+    datasets: [{
+      label: 'Transactions Per Second (TPS)',
+      data: [7, 15, 65000, 10000],
+      backgroundColor: ['#f7931a', '#627eea', '#9945ff', '#32cd32'],
+      borderColor: '#ffd700',
+      borderWidth: 1
+    }]
+  };
+
+  const competitorTpsOptions = {
+    responsive: true,
+    indexAxis: 'y', // Horizontal bars for readability
+    plugins: {
+      title: {
+        display: true,
+        text: 'Competitor TPS Comparison',
+        color: '#32cd32'
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        type: 'logarithmic', // Log scale for wide range (7 to 65K)
+        title: { display: true, text: 'TPS (Log Scale)', color: '#fff' },
+        grid: { color: 'rgba(50, 205, 50, 0.2)' }
+      },
+      y: {
+        grid: { color: 'rgba(50, 205, 50, 0.2)' }
+      }
+    }
+  };
+
+  // New: Revenue Streams Stacked Bar (Page 15 table)
+  const revenueData = {
+    labels: ['Year 1 (2025)', 'Year 2 (2026)', 'Year 3 (2027)'],
+    datasets: [
+      {
+        label: 'Staking Fees',
+        data: [0.2, 5, 30],
+        backgroundColor: '#32cd32'
+      },
+      {
+        label: 'Transaction Fees',
+        data: [0.1, 3, 20],
+        backgroundColor: '#ffd700'
+      },
+      {
+        label: 'NFT Royalties',
+        data: [0.05, 2, 15],
+        backgroundColor: '#800080'
+      },
+      {
+        label: 'Enterprise',
+        data: [0.15, 5, 35],
+        backgroundColor: '#ff4500'
+      }
+    ]
+  };
+
+  const revenueOptions = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Projected Revenue Streams ($M)',
+        color: '#32cd32'
+      },
+      legend: { position: 'top' }
+    },
+    scales: {
+      x: {
+        stacked: true,
+        grid: { color: 'rgba(50, 205, 50, 0.2)' }
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        title: { display: true, text: 'Revenue ($M)', color: '#fff' },
+        grid: { color: 'rgba(50, 205, 50, 0.2)' }
+      }
+    }
+  };
+
+  // New: Market Cap Projection Line (Page 14 table)
+  const marketCapData = {
+    labels: ['2025', '2026', '2027'],
+    datasets: [
+      {
+        label: 'Market Cap ($M)',
+        data: [10, 250, 1000],
+        borderColor: '#ffd700',
+        backgroundColor: 'rgba(255, 215, 0, 0.1)',
+        fill: true,
+        tension: 0.4,
+        yAxisID: 'y'
+      },
+      {
+        label: 'Users (K)',
+        data: [10, 1000, 10000],
+        borderColor: '#32cd32',
+        backgroundColor: 'rgba(50, 205, 50, 0.1)',
+        fill: true,
+        tension: 0.4,
+        yAxisID: 'y1'
+      }
+    ]
+  };
+
+  const marketCapOptions = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Market Cap & User Growth Projections',
+        color: '#ffd700'
+      }
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        display: true,
+        position: 'left',
+        title: { display: true, text: 'Market Cap ($M)', color: '#ffd700' },
+        grid: { color: 'rgba(255, 215, 0, 0.1)' }
+      },
+      y1: {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        title: { display: true, text: 'Users (K)', color: '#32cd32' },
+        grid: { drawOnChartArea: false }
+      },
+      x: {
+        grid: { color: 'rgba(255, 215, 0, 0.1)' }
+      }
+    }
+  };
+
   return (
     <section className="data-section">
       <h2 className="data-title">Data & Insights</h2>
       <p className="data-text">
-        Dive into the numbers powering XerisCoin. From deflationary tokenomics to market projections, these visuals highlight our path to revolutionizing global payments. Data sourced from our whitepaper—<a href="https://res.cloudinary.com/your-cloud-name/image/upload/v123/xeris_whitepaper.pdf" download className="download-link">download full PDF</a>.
+        Dive into the numbers powering XerisCoin. From deflationary tokenomics to market projections, these visuals highlight our path to revolutionizing global payments. Data sourced from our whitepaper—<a href="https://res.cloudinary.com/di6yjluli/image/upload/v1/xeris_whitepaper_final_current.pdf" download className="download-link">download full PDF</a>.
       </p>
 
       <div className="charts-grid">
@@ -162,15 +303,15 @@ function Data() {
           <FaChartLine className="chart-icon" />
           <h3 className="chart-title">Tokenomics: Halving Schedule</h3>
           <Line data={halvingData} options={halvingOptions} />
-          <p className="chart-caption">Capped at 700M XRS with halvings every 2 years for scarcity.</p>
+          <p className="chart-caption">Capped at 700M XRS with halvings every 2 years for scarcity (geometric series: Σ 342.5 × 730K × (1/2)^n = 500M mineable).</p>
         </div>
 
-        {/* Market TAM Doughnut */}
+        {/* Updated Market TAM Doughnut */}
         <div className="chart-card">
-          <FaChartPie className="chart-icon" /> {/* Fixed: FaPieChartAlt → FaChartPie */}
+          <FaChartPie className="chart-icon" />
           <h3 className="chart-title">Market Opportunity</h3>
           <Doughnut data={tamData} options={tamOptions} />
-          <p className="chart-caption">$5T payments + $2T DeFi + $50B NFTs—XRS captures it all.</p>
+          <p className="chart-caption">$15T+ total (Payments + DeFi + NFTs + Healthcare)—XRS captures via Texas-first adoption.</p>
         </div>
 
         {/* Problem Metrics Bar */}
@@ -181,12 +322,36 @@ function Data() {
           <p className="chart-caption">Annual costs: $700B fees, $1.2T delays, $2T exclusion.</p>
         </div>
 
-        {/* TPS Projection */}
+        {/* Extended TPS Projection */}
         <div className="chart-card">
           <FaChartLine className="chart-icon" />
           <h3 className="chart-title">Performance Projections</h3>
           <Line data={tpsData} options={tpsOptions} />
-          <p className="chart-caption">Scaling to 65k TPS by Q3 2026 via hybrid consensus.</p>
+          <p className="chart-caption">Scaling to 65K TPS by 2030 via hybrid consensus (PoH slots + PoW/PoS).</p>
+        </div>
+
+        {/* New: Competitor TPS Bar */}
+        <div className="chart-card">
+          <FaChartBar className="chart-icon" />
+          <h3 className="chart-title">TPS vs Competitors</h3>
+          <Bar data={competitorTpsData} options={competitorTpsOptions} />
+          <p className="chart-caption">XRS balances Solana speed with Bitcoin security (Page 5 comparison).</p>
+        </div>
+
+        {/* New: Revenue Streams Stacked Bar */}
+        <div className="chart-card">
+          <FaChartBar className="chart-icon" />
+          <h3 className="chart-title">Revenue Projections</h3>
+          <Bar data={revenueData} options={revenueOptions} />
+          <p className="chart-caption">Stacked by source: $200K staking Year 1 → $100M total Year 3 (5% APY, 0.1% fees, etc.).</p>
+        </div>
+
+        {/* New: Market Cap Line */}
+        <div className="chart-card">
+          <FaChartLine className="chart-icon" />
+          <h3 className="chart-title">Market Cap & Users</h3>
+          <Line data={marketCapData} options={marketCapOptions} />
+          <p className="chart-caption">$10M cap (10K users) in 2025 → $1B (10M users) in 2027 (conservative model).</p>
         </div>
       </div>
 
