@@ -1,6 +1,6 @@
 // Updated Projects.js
 import React from 'react';
-import { FaSearch, FaBrain, FaEnvelope, FaRocket } from 'react-icons/fa'; // Added FaRocket to import
+import { FaSearch, FaBrain, FaEnvelope, FaRocket } from 'react-icons/fa';
 
 function Projects() {
   return (
@@ -8,39 +8,57 @@ function Projects() {
       <h2 className="projects-title">Our Innovations</h2>
       <div className="project-grid">
         <div className="project-card">
-          <div className="project-image" style={{ background: 'linear-gradient(135deg, #8a5db5, #4a2e85)', height: '200px' }}>
+          <div className="project-media" style={{ background: 'linear-gradient(135deg, #8a5db5, #4a2e85)', height: '200px' }}>
             <FaSearch className="project-icon" />
           </div>
           <h3 className="project-title">Elite SEO Mastery</h3>
           <p className="project-description">We've propelled 6+ client sites to #1 on Google rankings purely through organic strategies—no paid plugins, no ad spend. Custom algorithms analyze and optimize content for maximum visibility.</p>
         </div>
         <div className="project-card">
-          <div className="project-image" style={{ background: 'linear-gradient(135deg, #d4af37, #ffd700)', height: '200px' }}>
+          <div className="project-media" style={{ background: 'linear-gradient(135deg, #d4af37, #ffd700)', height: '200px' }}>
             <FaBrain className="project-icon" />
           </div>
           <h3 className="project-title">Proprietary NumPy-Based LLM</h3>
           <p className="project-description">A groundbreaking large language model engineered entirely with NumPy—no external frameworks. This lean, efficient AI powers intelligent automation, from content generation to predictive analytics, all in pure Python code.</p>
         </div>
         <div className="project-card">
-          <div className="project-image" style={{ background: 'linear-gradient(135deg, #32cd32, #228b22)', height: '200px' }}>
+          <div className="project-media" style={{ background: 'linear-gradient(135deg, #32cd32, #228b22)', height: '200px' }}>
             <FaEnvelope className="project-icon" />
           </div>
           <h3 className="project-title">Mass Emailer Newsletter Tool</h3>
           <p className="project-description">Custom-built mass emailer for stunning newsletters styled like Apple or Google—crisp, responsive, and brand-perfect. Send to thousands for free using open-source SMTP and pure code, with zero costs or third-party dependencies.</p>
         </div>
         <div className="project-card">
-          <div className="project-image" style={{ background: 'linear-gradient(135deg, #800080, #4b0082)', height: '200px' }}>
-            <FaBrain className="project-icon" />
+          <div className="project-media">
+            <img 
+              src="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_200,c_fill/v1/Screenshot_2025-10-02_at_5.37.11_PM_tyayyd.jpg" 
+              alt="Live block explorer showing freshly mined blocks on XerisCoin testnet" 
+              className="project-image"
+            />
           </div>
           <h3 className="project-title">XerisCoin Triple Consensus Blockchain</h3>
-          <p className="project-description">A revolutionary blockchain utilizing PoW, PoH, and PoS for unmatched security and efficiency, supporting our DeFi ecosystem.</p>
+          <p className="project-description">A revolutionary blockchain utilizing PoW, PoH, and PoS for unmatched security and efficiency, supporting our DeFi ecosystem. Live block explorer showing freshly mined blocks on the testnet!</p>
         </div>
         <div className="project-card">
-          <div className="project-image" style={{ background: 'linear-gradient(135deg, #ff4500, #dc143c)', height: '200px' }}>
-            <FaRocket className="project-icon" />
+          <div className="project-media">
+            <video 
+              className="project-video" 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              poster="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_200,c_fill/v1/IMG_1919_gqfe0c.jpg"
+            >
+              <source src="https://res.cloudinary.com/di6yjluli/video/upload/q_auto,f_auto,w_400,h_200,c_fill/v1/ScreenRecording_09-30-2025_23-16-21_1_m46ztn.mp4" type="video/mp4" />
+              <img 
+                src="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_200,c_fill/v1/IMG_1919_gqfe0c.jpg" 
+                alt="iOS app losing connection in real-time" 
+                className="project-image-fallback"
+              />
+            </video>
           </div>
           <h3 className="project-title">Xeris dApp</h3>
-          <p className="project-description">A decentralized application rewarding users with $XERIS for achieving milestones, integrated with our triple consensus blockchain.</p>
+          <p className="project-description">A decentralized application rewarding users with $XERIS for achieving milestones, integrated with our triple consensus blockchain. See real-time iOS connection and response when the node stops!</p>
         </div>
       </div>
     </section>
