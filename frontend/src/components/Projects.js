@@ -1,8 +1,69 @@
-// Updated Projects.js
-import React from 'react';
-import { FaSearch, FaBrain, FaEnvelope, FaRocket } from 'react-icons/fa'; // Restored FaRocket for dApp card
+// Updated Projects.js with Lightbox Gallery
+import React, { useState } from 'react';
+import { FaSearch, FaBrain, FaEnvelope, FaRocket, FaTimes } from 'react-icons/fa'; // Added FaTimes for close button
 
 function Projects() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentMedia, setCurrentMedia] = useState(null);
+
+  // Gallery items data
+  const galleryItems = [
+    {
+      type: 'image',
+      src: 'https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_1200,h_900,c_fill/v1/IMG_1847_hvlmpz.jpg',
+      alt: 'Terminal showing blocks being mined on XerisCoin testnet with difficulty adjustment',
+      caption: 'Live block mining on testnet with real-time difficulty adjustment'
+    },
+    {
+      type: 'image',
+      src: 'https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_1200,h_900,c_fill/v1/Screenshot_2025-10-02_at_5.37.11_PM_tyayyd.jpg',
+      alt: 'Block explorer displaying freshly mined blocks on XerisCoin testnet',
+      caption: 'Block explorer showing freshly mined blocks and transactions'
+    },
+    {
+      type: 'image',
+      src: 'https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_1200,h_900,c_fill/v1/IMG_1919_gqfe0c.jpg',
+      alt: 'iOS app connecting to XerisCoin testnet',
+      caption: 'iOS app connecting to the testnet wallet'
+    },
+    {
+      type: 'video',
+      src: 'https://res.cloudinary.com/di6yjluli/video/upload/q_auto,f_auto/v1/ScreenRecording_09-30-2025_22-56-55_1_dywrer.mp4',
+      poster: 'https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_1200,h_900,c_fill/v1/IMG_1919_gqfe0c.jpg',
+      alt: 'Node running and connected to testnet',
+      caption: 'Node running and maintaining connection to testnet'
+    },
+    {
+      type: 'video',
+      src: 'https://res.cloudinary.com/di6yjluli/video/upload/q_auto,f_auto/v1/ScreenRecording_09-30-2025_23-16-21_1_m46ztn.mp4',
+      poster: 'https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_1200,h_900,c_fill/v1/IMG_1919_gqfe0c.jpg',
+      alt: 'iOS app losing connection when node stops',
+      caption: 'Stopping the node and watching real-time connection loss in iOS app'
+    }
+  ];
+
+  const openLightbox = (item) => {
+    setCurrentMedia(item);
+    setIsOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsOpen(false);
+    setCurrentMedia(null);
+    // Pause video if open
+    const video = document.querySelector('.lightbox-video');
+    if (video) video.pause();
+  };
+
+  // Close on ESC key
+  React.useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    };
+    if (isOpen) document.addEventListener('keydown', handleEsc);
+    return () => document.removeEventListener('keydown', handleEsc);
+  }, [isOpen]);
+
   return (
     <section className="projects-section">
       <h2 className="projects-title">Our Innovations</h2>
@@ -44,81 +105,69 @@ function Projects() {
         </div>
       </div>
 
-      {/* New Gallery Section */}
+      {/* Gallery Section */}
       <div className="gallery-section">
         <h3 className="gallery-title">Live Testnet Demos</h3>
         <p className="gallery-subtitle">Real-time captures from our Q3 2025 testnet—watch the blockchain in action.</p>
         <div className="gallery-grid">
-          {/* Mining Terminal Image */}
-          <div className="gallery-item">
-            <img 
-              src="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_300,c_fill/v1/IMG_1847_hvlmpz.jpg" 
-              alt="Terminal showing blocks being mined on XerisCoin testnet with difficulty adjustment" 
-              className="gallery-media"
-            />
-            <p className="gallery-caption">Live block mining on testnet with real-time difficulty adjustment</p>
-          </div>
-
-          {/* Block Explorer Image */}
-          <div className="gallery-item">
-            <img 
-              src="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_300,c_fill/v1/Screenshot_2025-10-02_at_5.37.11_PM_tyayyd.jpg" 
-              alt="Block explorer displaying freshly mined blocks on XerisCoin testnet" 
-              className="gallery-media"
-            />
-            <p className="gallery-caption">Block explorer showing freshly mined blocks and transactions</p>
-          </div>
-
-          {/* iOS Connection Image */}
-          <div className="gallery-item">
-            <img 
-              src="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_300,c_fill/v1/IMG_1919_gqfe0c.jpg" 
-              alt="iOS app connecting to XerisCoin testnet" 
-              className="gallery-media"
-            />
-            <p className="gallery-caption">iOS app connecting to the testnet wallet</p>
-          </div>
-
-          {/* Running/Connected Video */}
-          <div className="gallery-item">
-            <video 
-              className="gallery-media" 
-              autoPlay 
-              muted 
-              loop 
-              playsInline
-            >
-              <source src="https://res.cloudinary.com/di6yjluli/video/upload/q_auto,f_auto,w_400,h_300,c_fill/v1/ScreenRecording_09-30-2025_22-56-55_1_dywrer.mp4" type="video/mp4" />
-              <img 
-                src="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_300,c_fill/v1/IMG_1919_gqfe0c.jpg" 
-                alt="Fallback: Node running and connected to testnet" 
-                className="gallery-media-fallback"
-              />
-            </video>
-            <p className="gallery-caption">Node running and maintaining connection to testnet</p>
-          </div>
-
-          {/* Stopping/Loss Video */}
-          <div className="gallery-item">
-            <video 
-              className="gallery-media" 
-              autoPlay 
-              muted 
-              loop 
-              playsInline
-              poster="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_300,c_fill/v1/IMG_1919_gqfe0c.jpg"
-            >
-              <source src="https://res.cloudinary.com/di6yjluli/video/upload/q_auto,f_auto,w_400,h_300,c_fill/v1/ScreenRecording_09-30-2025_23-16-21_1_m46ztn.mp4" type="video/mp4" />
-              <img 
-                src="https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,w_400,h_300,c_fill/v1/IMG_1919_gqfe0c.jpg" 
-                alt="Fallback: iOS app losing connection when node stops" 
-                className="gallery-media-fallback"
-              />
-            </video>
-            <p className="gallery-caption">Stopping the node and watching real-time connection loss in iOS app</p>
-          </div>
+          {galleryItems.map((item, index) => (
+            <div key={index} className="gallery-item" onClick={() => openLightbox(item)}>
+              {item.type === 'image' ? (
+                <img 
+                  src={`${item.src.replace('w_1200,h_900', 'w_400,h_300')}`} 
+                  alt={item.alt} 
+                  className="gallery-media"
+                />
+              ) : (
+                <video 
+                  className="gallery-media" 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  poster={item.poster ? item.poster.replace('w_1200,h_900', 'w_400,h_300') : undefined}
+                >
+                  <source src={item.src} type="video/mp4" />
+                  <img 
+                    src={item.poster ? item.poster.replace('w_1200,h_900', 'w_400,h_300') : ''} 
+                    alt={item.alt} 
+                    className="gallery-media-fallback"
+                  />
+                </video>
+              )}
+              <p className="gallery-caption">{item.caption}</p>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {isOpen && currentMedia && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-close" onClick={closeLightbox}>
+              <FaTimes />
+            </button>
+            <div className="lightbox-media">
+              {currentMedia.type === 'image' ? (
+                <img src={currentMedia.src} alt={currentMedia.alt} className="lightbox-image" />
+              ) : (
+                <video 
+                  className="lightbox-video" 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  poster={currentMedia.poster}
+                >
+                  <source src={currentMedia.src} type="video/mp4" />
+                </video>
+              )}
+            </div>
+            <p className="lightbox-caption">{currentMedia.caption}</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
