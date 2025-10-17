@@ -1,122 +1,100 @@
-// Updated XerisSOL.js
-import React, { useState } from 'react';
-import { FaCoins, FaBitcoin, FaExternalLinkAlt, FaExchangeAlt, FaUsers, FaTelegram } from 'react-icons/fa';
+// Updated XerisCoin.js
+import React, { useState, useEffect } from 'react';
+import { FaCoins, FaMap, FaTelegram, FaExternalLinkAlt } from 'react-icons/fa';
 
-function XerisSOL() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    sol_address: ''
-  });
+function XerisCoin() {
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const presaleProgress = 0; // No funds raised yet
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // For Netlify form, submission is handled automatically
-    // Reset form after submit
-    setFormData({ name: '', email: '', sol_address: '' });
-  };
+  function calculateTimeLeft() {
+    const difference = +new Date('2025-10-31T00:00:00') - +new Date();
+    let timeLeft = {};
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    } else {
+      timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+    return timeLeft;
+  }
 
   return (
     <section className="xeriscoin-section">
-      {/* Hero with animated background - only at top */}
-      <div className="hero">
-        <div className="hero-bg"></div>
-        <div className="hero-content">
-          <h1 className="hero-title">XerisSOL: Join the Revolution</h1>
-          <p className="hero-text">
-            Fast, fun, and future-proof on Solana. Launched on pump.fun for instant access. Build with us before mainnet—submit your address to join the early crew.
-          </p>
-          <div className="button-group">
-            <a href="https://t.me/+WSqVnLfN36ZkMjAx" target="_blank" rel="noopener noreferrer" className="cta-button">
-              <FaTelegram className="btn-icon" /> Join Telegram Community
-            </a>
-            <a href="https://www.pump.fun/" className="cta-btn glowing-btn" target="_blank" rel="noopener noreferrer">
-              <FaExternalLinkAlt className="btn-icon" /> Get on Pump.fun
-            </a>
+      <h2 className="xeriscoin-title">XerisCoin: Revolutionizing Payments</h2>
+      <p className="xeriscoin-text">
+        <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), is a native token on our Layer 1 blockchain, delivering 10,000+ TPS with a triple consensus (PoW, PoH, PoS). Our Q3 2025 testnet achieved 100% uptime. Presale of 10M tokens will fund 1-10M wrapped XERIS for DEX liquidity to establish market value.
+      </p>
+      <div className="countdown-container">
+        <h3 className="countdown-title">Presale Ends In</h3>
+        <div className="countdown-timer">
+          <div className="countdown-item">
+            <span className="countdown-number">{timeLeft.days}</span>
+            <span className="countdown-label">Days</span>
+          </div>
+          <div className="countdown-item">
+            <span className="countdown-number">{timeLeft.hours}</span>
+            <span className="countdown-label">Hours</span>
+          </div>
+          <div className="countdown-item">
+            <span className="countdown-number">{timeLeft.minutes}</span>
+            <span className="countdown-label">Minutes</span>
+          </div>
+          <div className="countdown-item">
+            <span className="countdown-number">{timeLeft.seconds}</span>
+            <span className="countdown-label">Seconds</span>
           </div>
         </div>
       </div>
-
-      {/* Clean, focused form section - no background */}
-      <section className="contact-section" style={{ background: 'none', padding: '4rem 2rem' }}>
-        <h2 className="contact-title">Grow with Us: Submit Your Wallet</h2>
-        <div className="contact-content">
-          <p className="about-text" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
-            Help us build the Xeris userbase ahead of Q4 2025 mainnet. Share your SOL address to get airdrop alerts, exclusive updates, and auto-bridge to real $XERIS. Every submit counts—let's launch strong together.
-          </p>
-          <form name="xerissol-address" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="contact-form">
-            <input type="hidden" name="form-name" value="xerissol-address" />
-            <p className="hidden">
-              <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-            </p>
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name (Optional)"
-                value={formData.name}
-                onChange={handleChange}
-                className="form-input"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email (Optional)"
-                value={formData.email}
-                onChange={handleChange}
-                className="form-input"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="sol_address"
-                placeholder="Your SOL Wallet Address"
-                value={formData.sol_address}
-                onChange={handleChange}
-                required
-                className="form-input"
-              />
-            </div>
-            <button type="submit" className="submit-btn cta-button">
-              <FaUsers className="btn-icon" /> Join the Userbase
-            </button>
-          </form>
+      <div className="presale-progress">
+        <h3 className="landing-subtitle">Presale Progress</h3>
+        <div className="progress-bar">
+          <div className="progress-fill" style={{ width: `${presaleProgress}%` }}></div>
         </div>
-      </section>
-
-      {/* Simple details - focus on benefits for users */}
-      <div className="xeriscoin-details" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+        <p className="progress-text">{presaleProgress}% of 10M XERIS tokens sold</p>
+      </div>
+      <div className="xeriscoin-details">
         <div className="detail-card">
-          <FaBitcoin className="detail-icon" />
-          <h3 className="landing-subtitle">Why Join Early?</h3>
-          <ul className="scripture-list" style={{ fontSize: '1.1rem' }}>
-            <li>Be first for airdrops & rewards</li>
-            <li>Shape the mainnet features</li>
-            <li>Low-fee Solana speed now</li>
+          <FaCoins className="detail-icon" />
+          <h3 className="landing-subtitle">Tokenomics</h3>
+          <ul className="scripture-list">
+            <li>Total Supply: 700M XERIS</li>
+            <li>Presale: 10M tokens (from 200M trust wallet)</li>
+            <li>Treasury: 190M (locked)</li>
+            <li>Mining: 500M (halving every 2 years)</li>
           </ul>
         </div>
         <div className="detail-card">
-          <FaExchangeAlt className="detail-icon" />
-          <h3 className="landing-subtitle">Seamless Mainnet Swap</h3>
-          <ul className="scripture-list" style={{ fontSize: '1.1rem' }}>
-            <li>Your XerisSOL auto-converts to $XERIS</li>
-            <li>Full value preserved at launch</li>
-            <li>No hassle— just hold & grow</li>
+          <FaMap className="detail-icon" />
+          <h3 className="landing-subtitle">Roadmap</h3>
+          <ul className="scripture-list">
+            <li>Q3 2025: Testnet completed with 10,000+ TPS</li>
+            <li>Q4 2025: Mainnet launch and presale</li>
+            <li>Q1 2026: 1-10M wXRS on DEX for liquidity</li>
+            <li>Q2 2026: List on major exchanges</li>
           </ul>
         </div>
+      </div>
+      <div className="button-group">
+        <a href="https://t.me/+WSqVnLfN36ZkMjAx" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">
+          <FaTelegram className="btn-icon" /> Join Telegram
+        </a>
+        <a href="https://www.xerisweb.com/presale" className="cta-btn glowing-btn">
+          <FaExternalLinkAlt className="btn-icon" /> Join Presale
+        </a>
       </div>
     </section>
   );
 }
 
-export default XerisSOL;
+export default XerisCoin;

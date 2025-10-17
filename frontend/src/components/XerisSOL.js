@@ -1,6 +1,6 @@
 // Updated XerisSOL.js
 import React, { useState } from 'react';
-import { FaCoins, FaBitcoin, FaExternalLinkAlt, FaExchangeAlt } from 'react-icons/fa';
+import { FaCoins, FaBitcoin, FaExternalLinkAlt, FaExchangeAlt, FaUsers, FaTelegram } from 'react-icons/fa';
 
 function XerisSOL() {
   const [formData, setFormData] = useState({
@@ -24,32 +24,32 @@ function XerisSOL() {
   };
 
   return (
-    <section className="xeriscoin-section"> {/* Reuse xeriscoin-section for consistency */}
-      <div className="hero-bg"></div> {/* Reuse hero-bg for gradient */}
-      <div className="hero-content"> {/* Reuse hero-content for centering */}
-        <h1 className="hero-title">XerisSOL: Solana-Powered Revolution</h1>
-        <p className="hero-text">
-          Unlock the speed of Solana with <strong>XerisSOL ($XERIS)</strong>—our high-velocity token for seamless DeFi and wellness tokenization. Launched on pump.fun for instant liquidity, integrated with Activate Supplements for tokenized protocols. Submit your SOL address below to claim presale airdrops and join the liquidity pool!
-        </p>
-        <p className="hero-text">
-          <strong>Bridge to Mainnet:</strong> If you bought XerisSOL, you'll receive equivalent value in mainnet XerisCoins upon our Q4 2025 mainnet launch—seamless swap via automated bridge. No action needed post-submission!
-        </p>
-        <div className="button-group">
-          <a href="https://t.me/+WSqVnLfN36ZkMjAx" target="_blank" rel="noopener noreferrer" className="cta-button">
-            <FaBitcoin className="btn-icon" /> Join Telegram
-          </a>
-          <a href="https://www.pump.fun/" className="cta-btn glowing-btn" target="_blank" rel="noopener noreferrer">
-            <FaExternalLinkAlt className="btn-icon" /> Launch on Pump.fun
-          </a>
+    <section className="xeriscoin-section">
+      {/* Hero with animated background - only at top */}
+      <div className="hero">
+        <div className="hero-bg"></div>
+        <div className="hero-content">
+          <h1 className="hero-title">XerisSOL: Join the Revolution</h1>
+          <p className="hero-text">
+            Fast, fun, and future-proof on Solana. Launched on pump.fun for instant access. Build with us before mainnet—submit your address to join the early crew.
+          </p>
+          <div className="button-group">
+            <a href="https://t.me/+WSqVnLfN36ZkMjAx" target="_blank" rel="noopener noreferrer" className="cta-button">
+              <FaTelegram className="btn-icon" /> Join Telegram Community
+            </a>
+            <a href="https://www.pump.fun/" className="cta-btn glowing-btn" target="_blank" rel="noopener noreferrer">
+              <FaExternalLinkAlt className="btn-icon" /> Get on Pump.fun
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Form Section - Reuse contact-section styles */}
-      <section className="contact-section">
-        <h2 className="contact-title">Submit Your SOL Address</h2>
+      {/* Clean, focused form section - no background */}
+      <section className="contact-section" style={{ background: 'none', padding: '4rem 2rem' }}>
+        <h2 className="contact-title">Grow with Us: Submit Your Wallet</h2>
         <div className="contact-content">
-          <p className="about-text">
-            Bought XerisSOL on Solana via pump.fun? Drop your wallet address here to verify and receive updates on airdrops, liquidity events, and Super Human Program integrations. We'll keep it secure—no spam, just gains. Your holdings auto-convert to mainnet $XERIS at launch.
+          <p className="about-text" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+            Help us build the Xeris userbase ahead of Q4 2025 mainnet. Share your SOL address to get airdrop alerts, exclusive updates, and auto-bridge to real $XERIS. Every submit counts—let's launch strong together.
           </p>
           <form name="xerissol-address" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="contact-form">
             <input type="hidden" name="form-name" value="xerissol-address" />
@@ -88,30 +88,30 @@ function XerisSOL() {
               />
             </div>
             <button type="submit" className="submit-btn cta-button">
-              <FaCoins className="btn-icon" /> Submit & Claim
+              <FaUsers className="btn-icon" /> Join the Userbase
             </button>
           </form>
         </div>
       </section>
 
-      {/* Details Cards - Reuse detail-card from XerisCoin */}
-      <div className="xeriscoin-details">
+      {/* Simple details - focus on benefits for users */}
+      <div className="xeriscoin-details" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
         <div className="detail-card">
           <FaBitcoin className="detail-icon" />
-          <h3 className="landing-subtitle">Solana Edge</h3>
-          <ul className="scripture-list">
-            <li>65K+ TPS for lightning-fast trades</li>
-            <li>Low fees via pump.fun launch</li>
-            <li>Integrated with Raydium DEX</li>
+          <h3 className="landing-subtitle">Why Join Early?</h3>
+          <ul className="scripture-list" style={{ fontSize: '1.1rem' }}>
+            <li>Be first for airdrops & rewards</li>
+            <li>Shape the mainnet features</li>
+            <li>Low-fee Solana speed now</li>
           </ul>
         </div>
         <div className="detail-card">
           <FaExchangeAlt className="detail-icon" />
-          <h3 className="landing-subtitle">Mainnet Bridge</h3>
-          <ul className="scripture-list">
-            <li>Auto-swap XerisSOL to $XERIS on launch</li>
-            <li>1:1 value preservation</li>
-            <li>Q4 2025 activation—no extra steps</li>
+          <h3 className="landing-subtitle">Seamless Mainnet Swap</h3>
+          <ul className="scripture-list" style={{ fontSize: '1.1rem' }}>
+            <li>Your XerisSOL auto-converts to $XERIS</li>
+            <li>Full value preserved at launch</li>
+            <li>No hassle— just hold & grow</li>
           </ul>
         </div>
       </div>
