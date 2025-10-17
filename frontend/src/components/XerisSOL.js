@@ -1,6 +1,6 @@
 // Updated XerisSOL.js
 import React, { useState } from 'react';
-import { FaCoins, FaBitcoin, FaExternalLinkAlt, FaExchangeAlt, FaUsers, FaTelegram } from 'react-icons/fa';
+import { FaBitcoin, FaExternalLinkAlt, FaExchangeAlt, FaUsers, FaTelegram } from 'react-icons/fa';
 
 function XerisSOL() {
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ function XerisSOL() {
             Fast, fun, and future-proof on Solana. Launched on pump.fun for instant access. Build with us before mainnet—submit your address to join the early crew.
           </p>
           <div className="button-group">
-            <a href="https://t.me/+WSqVnLfN36ZkMjAx" target="_blank" rel="noopener noreferrer" className="cta-button">
+            <a href="https://t.me/xeriscoin" target="_blank" rel="noopener noreferrer" className="cta-button">
               <FaTelegram className="btn-icon" /> Join Telegram Community
             </a>
             <a href="https://www.pump.fun/" className="cta-btn glowing-btn" target="_blank" rel="noopener noreferrer">

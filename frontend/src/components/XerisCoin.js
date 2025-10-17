@@ -86,7 +86,7 @@ function XerisCoin() {
         </div>
       </div>
       <div className="button-group">
-        <a href="https://t.me/+WSqVnLfN36ZkMjAx" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">
+        <a href="https://t.me/xeriscoin" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">
           <FaTelegram className="btn-icon" /> Join Telegram
         </a>
         <a href="https://www.xerisweb.com/presale" className="cta-btn glowing-btn">
