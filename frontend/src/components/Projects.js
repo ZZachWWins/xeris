@@ -95,6 +95,12 @@ function Projects() {
           </div>
           <h3 className="project-title">XerisCoin Triple Consensus Blockchain</h3>
           <p className="project-description">A revolutionary blockchain utilizing PoW, PoH, and PoS for unmatched security and efficiency, supporting our DeFi ecosystem. See live testnet demos in the gallery below!</p>
+          
+          {/* Partnership Embed */}
+          <div className="partnership-highlight">
+            <h4>Live Integration: Activate Supplements</h4>
+            <p>Leveraging XerisCoin for tokenized supps—7% equity, 20% rev share. This biotech tie-in drives liquidity and hits our $50M cap goals head-on.</p>
+          </div>
         </div>
         <div className="project-card">
           <div className="project-image" style={{ background: 'linear-gradient(135deg, #ff4500, #dc143c)', height: '200px' }}>

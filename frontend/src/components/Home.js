@@ -12,6 +12,18 @@ function Home() {
         <p className="hero-text">
           <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), powers our Layer 1 blockchain with a triple consensus (PoW, PoH, PoS) for 10,000+ TPS. Testnet completed Q3 2025 with 100% uptime. Join our presale of 10M tokens to fund DEX liquidity and revolutionize payments!
         </p>
+        
+        {/* New Partnership Teaser */}
+        <div className="partnership-teaser">
+          <div className="card glow-card">
+            <h3>🚀 Strategic Alliance: Activate Supplements</h3>
+            <p>XerisCoin integrates with Corey's biotech powerhouse, tokenizing wellness protocols for instant liquidity. 7% equity stake + 20% Super Human Program rev share—validating $50M market cap trajectory.</p>
+            <button className="cta-btn" onClick={() => window.location.href='/about#partnerships'}>
+              Dive In
+            </button>
+          </div>
+        </div>
+        
         <div className="button-group">
           <Link to="/projects" className="cta-button">Explore Innovations</Link>
           <Link to="/xeriscoin" className="cta-button glowing-btn">Join Presale</Link>

@@ -31,6 +31,30 @@ function About() {
             <p>SEO mastery and custom AI driving real results without a dime on ads.</p>
           </div>
         </div>
+
+        {/* New Strategic Partnerships Section */}
+        <section id="partnerships" className="partnerships-section">
+          <h2>Strategic Partnerships: Fueling Growth</h2>
+          <p>We're not flying solo—collaborations like our deal with Activate Supplements underscore market demand for Xeris tech. This biotech-blockchain bridge unlocks tokenized assets, deferred funding milestones, and shared revenue streams, propelling us toward Q1 2026 mainnet and beyond.</p>
+          
+          <div className="partnership-grid">
+            <div className="partnership-card">
+              <img src="/assets/activate-logo.png" alt="Activate Supplements" className="partner-logo" /> {/* Add your logo asset */}
+              <h3>Activate Supplements x Xeris Web</h3>
+              <ul>
+                <li><strong>Equity Boost:</strong> 7% immediate stake in Activate, signaling investor confidence in our Layer-1 prowess.</li>
+                <li><strong>Revenue Synergy:</strong> 20% of Super Human Program yields, powered by XerisCoin's PoW/PoH/PoS for seamless, low-fee transactions.</li>
+                <li><strong>Funding Catalysts:</strong> Deferred payments unlock at $100K-$250K thresholds, with kill fees as safeguards—proving demand for tokenized health protocols.</li>
+                <li><strong>Market Impact:</strong> Tokenizes wellness assets for instant liquidity pools on DEXes, targeting Austin's millennial crypto wave and beyond.</li>
+              </ul>
+              <p className="impact-note">This partnership validates XerisCoin's edge: 10K+ TPS testnet, treasury-backed airdrops, and a path to $50M cap by EOY. It's not hype—it's hardware-secured reality.</p>
+              <button className="learn-more-btn" onClick={() => window.location.href='mailto:zachary@xerisweb.com?subject=Xeris Partnership Inquiry'}>
+                Partner With Us
+              </button>
+            </div>
+          </div>
+        </section>
+
         <Link to="/xeriscoin" className="cta-btn glowing-btn">Discover XerisCoin</Link>
       </div>
     </section>
