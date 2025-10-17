@@ -1,3 +1,4 @@
+// Updated App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -9,6 +10,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import XerisCoin from './components/XerisCoin';
 import Data from './components/Data'; // New import
+import XerisSOL from './components/XerisSOL'; // New import
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/xeriscoin" element={<XerisCoin />} />
             <Route path="/data" element={<Data />} /> {/* New route */}
+            <Route path="/xerissol" element={<XerisSOL />} /> {/* New route */}
           </Routes>
         </div>
         <Footer />
