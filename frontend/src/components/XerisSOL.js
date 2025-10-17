@@ -1,6 +1,6 @@
-// New XerisSOL.js
+// Updated XerisSOL.js
 import React, { useState } from 'react';
-import { FaCoins, FaSolana, FaExternalLinkAlt, FaExchangeAlt } from 'react-icons/fa';
+import { FaCoins, FaBitcoin, FaExternalLinkAlt, FaExchangeAlt } from 'react-icons/fa';
 
 function XerisSOL() {
   const [formData, setFormData] = useState({
@@ -36,7 +36,7 @@ function XerisSOL() {
         </p>
         <div className="button-group">
           <a href="https://t.me/+WSqVnLfN36ZkMjAx" target="_blank" rel="noopener noreferrer" className="cta-button">
-            <FaSolana className="btn-icon" /> Join Telegram
+            <FaBitcoin className="btn-icon" /> Join Telegram
           </a>
           <a href="https://www.pump.fun/" className="cta-btn glowing-btn" target="_blank" rel="noopener noreferrer">
             <FaExternalLinkAlt className="btn-icon" /> Launch on Pump.fun
@@ -97,7 +97,7 @@ function XerisSOL() {
       {/* Details Cards - Reuse detail-card from XerisCoin */}
       <div className="xeriscoin-details">
         <div className="detail-card">
-          <FaSolana className="detail-icon" />
+          <FaBitcoin className="detail-icon" />
           <h3 className="landing-subtitle">Solana Edge</h3>
           <ul className="scripture-list">
             <li>65K+ TPS for lightning-fast trades</li>
