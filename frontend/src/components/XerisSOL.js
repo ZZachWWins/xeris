@@ -1,6 +1,6 @@
 // Updated XerisSOL.js
 import React, { useState } from 'react';
-import { FaBitcoin, FaExternalLinkAlt, FaExchangeAlt, FaUsers, FaTelegram } from 'react-icons/fa';
+import { FaBitcoin, FaExternalLinkAlt, FaExchangeAlt, FaUsers, FaTelegram, FaRocket } from 'react-icons/fa';
 
 function XerisSOL() {
   const [formData, setFormData] = useState({
@@ -16,11 +16,20 @@ function XerisSOL() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // For Netlify form, submission is handled automatically
-    // Reset form after submit
-    setFormData({ name: '', email: '', sol_address: '' });
+    const form = e.target;
+    const data = new FormData(form);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString(),
+      });
+      setFormData({ name: '', email: '', sol_address: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
@@ -31,24 +40,24 @@ function XerisSOL() {
         <div className="hero-content">
           <h1 className="hero-title">XerisSOL: Join the Revolution</h1>
           <p className="hero-text">
-            Fast, fun, and future-proof on Solana. Launched on pump.fun for instant access. Build with us before mainnet—submit your address to join the early crew.
+            Fast, fun, and future-proof on Solana. Launched on pump.fun for instant access. Tokens redeemable as SOL-wrapped $XERIS equivalent on mainnet launch. Build with us before mainnet—submit your address to join the early crew.
           </p>
           <div className="button-group">
             <a href="https://t.me/xeriscoin" target="_blank" rel="noopener noreferrer" className="cta-button">
               <FaTelegram className="btn-icon" /> Join Telegram Community
             </a>
-            <a href="https://www.pump.fun/" className="cta-btn glowing-btn" target="_blank" rel="noopener noreferrer">
-              <FaExternalLinkAlt className="btn-icon" /> Get on Pump.fun
+            <a href="https://pump.fun/9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump" className="cta-btn glowing-btn" target="_blank" rel="noopener noreferrer">
+              <FaRocket className="btn-icon" /> Buy on Pump.fun
             </a>
           </div>
         </div>
       </div>
 
       {/* Clean, focused form section - no background */}
-      <section className="contact-section" style={{ background: 'none', padding: '4rem 2rem' }}>
+      <section className="contact-section">
         <h2 className="contact-title">Grow with Us: Submit Your Wallet</h2>
         <div className="contact-content">
-          <p className="about-text" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+          <p className="about-text">
             Help us build the Xeris userbase ahead of Q4 2025 mainnet. Share your SOL address to get airdrop alerts, exclusive updates, and auto-bridge to real $XERIS. Every submit counts—let's launch strong together.
           </p>
           <form name="xerissol-address" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="contact-form">
@@ -95,11 +104,11 @@ function XerisSOL() {
       </section>
 
       {/* Simple details - focus on benefits for users */}
-      <div className="xeriscoin-details" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+      <div className="xeriscoin-details">
         <div className="detail-card">
           <FaBitcoin className="detail-icon" />
           <h3 className="landing-subtitle">Why Join Early?</h3>
-          <ul className="scripture-list" style={{ fontSize: '1.1rem' }}>
+          <ul className="scripture-list">
             <li>Be first for airdrops & rewards</li>
             <li>Shape the mainnet features</li>
             <li>Low-fee Solana speed now</li>
@@ -108,7 +117,7 @@ function XerisSOL() {
         <div className="detail-card">
           <FaExchangeAlt className="detail-icon" />
           <h3 className="landing-subtitle">Seamless Mainnet Swap</h3>
-          <ul className="scripture-list" style={{ fontSize: '1.1rem' }}>
+          <ul className="scripture-list">
             <li>Your XerisSOL auto-converts to $XERIS</li>
             <li>Full value preserved at launch</li>
             <li>No hassle— just hold & grow</li>
