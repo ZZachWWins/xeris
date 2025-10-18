@@ -1,6 +1,6 @@
-// Updated XerisSOL.js
+// Updated XerisSOL.js - Removed unused FaExternalLinkAlt import
 import React, { useState } from 'react';
-import { FaBitcoin, FaExternalLinkAlt, FaExchangeAlt, FaUsers, FaTelegram, FaRocket } from 'react-icons/fa';
+import { FaBitcoin, FaExchangeAlt, FaUsers, FaTelegram, FaRocket } from 'react-icons/fa';
 
 function XerisSOL() {
   const [formData, setFormData] = useState({
