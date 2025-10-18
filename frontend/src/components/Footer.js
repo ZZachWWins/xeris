@@ -28,7 +28,7 @@ function Footer() {
           <h4>Connect</h4>
           <div className="social-icons">
             <a
-              href="https://x.com/ZWinkle82162"
+              href="https://x.com/xeriscoin"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon twitter"
