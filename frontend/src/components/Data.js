@@ -1,4 +1,3 @@
-// Data.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -311,7 +310,7 @@ function Data() {
     <section className="data-section">
       <h2 className="data-title">Data & Insights</h2>
       <p className="data-text">
-        Dive into the numbers powering XerisCoin. From deflationary tokenomics to market projections, these visuals highlight our path to revolutionizing global payments. Data sourced from our whitepaper—<a href="https://drive.google.com/file/d/17KrXc8uRVa9lmWH9FlIKUqDV58qEZaFq/view?usp=sharing" download className="download-link">download full PDF</a>.
+        Dive into the numbers powering XerisCoin. From deflationary tokenomics to market projections, these visuals highlight our path to revolutionizing global payments. Data sourced from our whitepaper—<a href="https://drive.google.com/file/d/1x3LAnLbUWAgMbIYaQS2F5Hx52JZpx539/view?usp=sharing" download className="download-link">download full PDF</a>.
       </p>
 
       <div className="charts-grid">
