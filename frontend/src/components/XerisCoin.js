@@ -1,4 +1,3 @@
-
 // Updated XerisCoin.js
 import React from 'react';
 import { FaCoins, FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket } from 'react-icons/fa';
@@ -66,4 +65,3 @@ function XerisCoin() {
 }
 
 export default XerisCoin;
-```
