@@ -1,6 +1,6 @@
-// Updated XerisCoin.js
+// Updated XerisCoin.js - Confirmed removal of unused FaCoins import
 import React from 'react';
-import { FaCoins, FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket } from 'react-icons/fa';
+import { FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket } from 'react-icons/fa';
 
 function XerisCoin() {
   return (
