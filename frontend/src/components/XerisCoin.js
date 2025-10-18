@@ -1,6 +1,7 @@
+```jsx
 // Updated XerisCoin.js
 import React from 'react';
-import { FaCoins, FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake } from 'react-icons/fa';
+import { FaCoins, FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket } from 'react-icons/fa';
 
 function XerisCoin() {
   return (
@@ -38,6 +39,15 @@ function XerisCoin() {
             <li>Tokenized supplements and health assets on Xeris for instant liquidity and global access</li>
           </ul>
         </div>
+        <div className="detail-card">
+          <FaRocket className="detail-icon" />
+          <h3 className="landing-subtitle">Pump.fun Launch</h3>
+          <ul className="scripture-list">
+            <li>Launched on Pump.fun for early community engagement and fair distribution</li>
+            <li>Pump address: <a href="https://pump.fun/9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump" target="_blank" rel="noopener noreferrer">9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump</a></li>
+            <li>Tokens redeemable as SOL-wrapped $XERIS equivalent on mainnet launch</li>
+          </ul>
+        </div>
       </div>
       
       <div className="button-group">
@@ -47,9 +57,13 @@ function XerisCoin() {
         <a href="https://www.xerisweb.com" className="cta-btn glowing-btn">
           <FaExternalLinkAlt className="btn-icon" /> Explore Network
         </a>
+        <a href="https://pump.fun/9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">
+          <FaRocket className="btn-icon" /> Buy on Pump.fun
+        </a>
       </div>
     </section>
   );
 }
 
 export default XerisCoin;
+```
