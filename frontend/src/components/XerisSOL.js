@@ -8,6 +8,7 @@ function XerisSOL() {
     email: '',
     sol_address: ''
   });
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -27,6 +28,7 @@ function XerisSOL() {
         body: new URLSearchParams(data).toString(),
       });
       setFormData({ name: '', email: '', sol_address: '' });
+      setSuccess(true);
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -55,6 +57,7 @@ function XerisSOL() {
 
       {/* Clean, focused form section - no background */}
       <section className="contact-section">
+        {success && <div className="success-message">Submission received!</div>}
         <h2 className="contact-title">Grow with Us: Submit Your Wallet</h2>
         <div className="contact-content">
           <p className="about-text">
