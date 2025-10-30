@@ -1,4 +1,4 @@
-// Updated About.js
+// Updated About.js - Presale References Removed
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaShieldAlt, FaChartLine } from 'react-icons/fa'; // Using react-icons now that it's installed
@@ -9,7 +9,7 @@ function About() {
       <div className="about-content">
         <h2 className="about-title">About Xeris Web Co.</h2>
         <p className="about-text">
-          Led by Zachary Winkle, Xeris Web Co. pioneers global payments with <strong>XerisCoin ($XERIS)</strong>, a patent-pending (US #63/887,511) native token on our Layer 1 blockchain. Our Q3 2025 testnet achieved 10,000+ TPS with 100% uptime. Presale of 10M tokens will fund wrapped tokens for DEX liquidity.
+          Led by Zachary Winkle, Xeris Web Co. pioneers global payments with <strong>XerisCoin ($XERIS)</strong>, a patent-pending (US #63/887,511) native token on our Layer 1 blockchain. Our Q3 2025 testnet achieved 10,000+ TPS with 100% uptime.
         </p>
         <p className="about-text">
           We're not just building tech—we're crafting the future of decentralized finance with pure innovation and zero-compromise security. From Texas roots to global reach, our team turns bold ideas into unbreakable realities.
