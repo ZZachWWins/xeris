@@ -1,50 +1,50 @@
-// Updated XerisCoin.js - Confirmed removal of unused FaCoins import
+// Updated XerisCoin.js - Professional Pump.fun Focus
 import React from 'react';
 import { FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket } from 'react-icons/fa';
 
 function XerisCoin() {
   return (
     <section className="xeriscoin-section">
-      <h2 className="xeriscoin-title">XerisCoin: Powering the Future of Real-World Assets</h2>
+      <h2 className="xeriscoin-title">XerisCoin: The Native Token for Real-World Asset Innovation</h2>
       <p className="xeriscoin-text">
-        <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), is the native token of our Layer 1 blockchain, delivering 10,000+ TPS with a triple consensus (PoW, PoH, PoS). Our Q3 2025 testnet achieved 100% uptime, proving the network's scalability and security for tokenizing real-world assets.
+        <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), powers our Layer 1 blockchain with triple consensus (PoW, PoH, PoS) for 10,000+ TPS. Q3 2025 testnet delivered 100% uptime, validating scalability for tokenized assets. Acquire via our pump.fun launch—backed 1:1 in USD value and redeemable 5:1 in $XERIS from the treasury on mainnet.
       </p>
       
       <div className="xeriscoin-details">
         <div className="detail-card">
           <FaMap className="detail-icon" />
-          <h3 className="landing-subtitle">The XerisCoin Network</h3>
+          <h3 className="landing-subtitle">Layer 1 Excellence</h3>
           <ul className="scripture-list">
-            <li>Layer 1 blockchain with hybrid consensus for unmatched speed and security</li>
-            <li>10,000+ TPS on live testnet—ready for high-volume real-world applications</li>
-            <li>Designed for seamless tokenization of assets like property and wellness protocols</li>
+            <li>Hybrid consensus for superior speed and security</li>
+            <li>Proven 10,000+ TPS on testnet—enterprise-ready</li>
+            <li>Optimized for RWA tokenization, from real estate to biotech</li>
           </ul>
         </div>
         <div className="detail-card">
           <FaBuilding className="detail-icon" />
-          <h3 className="landing-subtitle">LOIs for Asset Tokenization</h3>
+          <h3 className="landing-subtitle">RWA Tokenization Pipeline</h3>
           <ul className="scripture-list">
-            <li>Signed Letters of Intent to tokenize real estate properties on the Xeris network</li>
-            <li>Enabling fractional ownership and liquidity for traditionally illiquid assets</li>
-            <li>XerisCoin as the utility token for transactions, staking, and governance in RWA ecosystems</li>
+            <li>LOIs secured for real estate fractionalization</li>
+            <li>Liquidity unlocked for illiquid assets via $XERIS utility</li>
+            <li>Governance, staking, and transaction token for RWA ecosystems</li>
           </ul>
         </div>
         <div className="detail-card">
           <FaHandshake className="detail-icon" />
-          <h3 className="landing-subtitle">Strategic Partnership: Activate Supplements</h3>
+          <h3 className="landing-subtitle">Activate Supplements Partnership</h3>
           <ul className="scripture-list">
-            <li>Exclusive contract for tokenizing wellness protocols via the Super Human Program</li>
-            <li>7% equity stake + 20% revenue share, driving real utility for $XERIS in biotech-blockchain fusion</li>
-            <li>Tokenized supplements and health assets on Xeris for instant liquidity and global access</li>
+            <li>Tokenizing wellness protocols in the Super Human Program</li>
+            <li>7% equity + 20% rev share, fueling biotech-blockchain synergy</li>
+            <li>Instant liquidity for health assets on Xeris network</li>
           </ul>
         </div>
         <div className="detail-card">
           <FaRocket className="detail-icon" />
-          <h3 className="landing-subtitle">Pump.fun Launch</h3>
+          <h3 className="landing-subtitle">pump.fun Launch & Backing</h3>
           <ul className="scripture-list">
-            <li>Launched on Pump.fun for early community engagement and fair distribution</li>
-            <li>Pump address: <a href="https://pump.fun/9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump" target="_blank" rel="noopener noreferrer">9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump</a></li>
-            <li>Tokens redeemable as SOL-wrapped $XERIS equivalent on mainnet launch</li>
+            <li>Live on pump.fun for fair, instant access</li>
+            <li>Address: <a href="https://pump.fun/9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump" target="_blank" rel="noopener noreferrer" className="download-link">9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump</a></li>
+            <li>1:1 USD backing; redeem 5:1 in treasury $XERIS on mainnet</li>
           </ul>
         </div>
       </div>
@@ -57,7 +57,7 @@ function XerisCoin() {
           <FaExternalLinkAlt className="btn-icon" /> Explore Network
         </a>
         <a href="https://pump.fun/9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">
-          <FaRocket className="btn-icon" /> Buy on Pump.fun
+          <FaRocket className="btn-icon" /> Acquire on pump.fun
         </a>
       </div>
     </section>
