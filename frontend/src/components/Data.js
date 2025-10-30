@@ -222,44 +222,42 @@ function Data() {
         display: true,
         text: 'Projected Revenue Streams ($M)',
         color: '#32cd32'
-      },
-      legend: { position: 'top' }
+      }
     },
     scales: {
-      x: {
-        stacked: true,
-        grid: { color: 'rgba(50, 205, 50, 0.2)' }
-      },
       y: {
-        stacked: true,
         beginAtZero: true,
         title: { display: true, text: 'Revenue ($M)', color: '#fff' },
+        grid: { color: 'rgba(50, 205, 50, 0.2)' }
+      },
+      x: {
+        stacked: true,
         grid: { color: 'rgba(50, 205, 50, 0.2)' }
       }
     }
   };
 
-  // Market Cap Projection Line (Page 14 table: Simplified single scale, users in M)
+  // Market Cap & User Growth Dual-Axis Line Chart
   const marketCapData = {
     labels: ['2025', '2026', '2027'],
     datasets: [
       {
         label: 'Market Cap ($M)',
-        data: [10, 250, 1000],
+        data: [10, 100, 1000],
         borderColor: '#ffd700',
         backgroundColor: 'rgba(255, 215, 0, 0.1)',
-        fill: true,
-        tension: 0.4,
-        yAxisID: 'y'
+        yAxisID: 'y',
+        fill: false,
+        tension: 0.4
       },
       {
-        label: 'Users (M)',
-        data: [0.01, 1, 10], // Normalized to M for scale
+        label: 'Active Users (M)',
+        data: [0.01, 0.1, 1],
         borderColor: '#32cd32',
         backgroundColor: 'rgba(50, 205, 50, 0.1)',
-        fill: true,
-        tension: 0.4,
-        yAxisID: 'y1'
+        yAxisID: 'y1',
+        fill: false,
+        tension: 0.4
       }
     ]
   };
@@ -310,7 +308,7 @@ function Data() {
     <section className="data-section">
       <h2 className="data-title">Data & Insights</h2>
       <p className="data-text">
-        Dive into the numbers powering XerisCoin. From deflationary tokenomics to market projections, these visuals highlight our path to revolutionizing global payments. Data sourced from our whitepaper—<a href="https://drive.google.com/file/d/1x3LAnLbUWAgMbIYaQS2F5Hx52JZpx539/view?usp=sharing" download className="download-link">download full PDF</a>.
+        Dive into the numbers powering XerisCoin. From deflationary tokenomics to market projections, these visuals highlight our path to revolutionizing global payments. Data sourced from our whitepaper—<a href="https://drive.google.com/file/d/13tq8KVKvbfWJvcet2-oSqTcHR75I5nqM/view?usp=sharing" download className="download-link">download full PDF</a>.
       </p>
 
       <div className="charts-grid">
