@@ -1467,3 +1467,314 @@ body {
     color: #fff; /* Full white on small screens */
   }
 }
+/* About Page Enhancements - Blue/White Contrast */
+.about-section {
+  padding: 5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.08); /* Subtle white overlay for depth */
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #fff, #007BFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #f0f0f0;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.about-text + .about-text {
+  margin-top: 2rem;
+  font-style: italic; /* Subtle emphasis on the second paragraph */
+}
+
+/* Features Grid Refinements */
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin: 4rem 0;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #fff, #007BFF);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 123, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+}
+
+.feature-icon {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.feature-card h3 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: #f0f0f0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Partnerships Section */
+.partnerships-section {
+  margin: 5rem 0;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.partnerships-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #fff, #17A2B8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.partnerships-section > p {
+  font-size: 1.15rem;
+  color: #f0f0f0;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.partnership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.partnership-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.partnership-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+}
+
+.partner-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.partnership-card:hover .partner-logo {
+  transform: scale(1.05);
+}
+
+.partnership-card h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.partnership-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.partnership-card li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.partnership-card li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #007BFF;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.impact-note {
+  font-style: italic;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(0, 123, 255, 0.1);
+  border-left: 3px solid #fff;
+  border-radius: 5px;
+}
+
+.learn-more-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #fff, #007BFF);
+  color: #0a0a0a;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.learn-more-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(23, 162, 184, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, #007BFF, #fff);
+  color: #0a0a0a;
+}
+
+/* CTA at Bottom */
+.about-section .cta-btn.glowing-btn {
+  display: inline-block;
+  margin: 3rem auto;
+  font-size: 1.3rem;
+  padding: 1rem 3rem;
+}
+
+/* Animations for Features/Partnerships */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Mobile Responsiveness for About */
+@media (max-width: 768px) {
+  .about-section,
+  .partnerships-section {
+    padding: 3rem 1rem;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .partnership-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .partnership-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .partner-logo {
+    width: 100px;
+  }
+
+  .partnership-card ul {
+    text-align: center;
+  }
+
+  .partnership-card li {
+    text-align: left;
+    padding-left: 1.5rem;
+  }
+
+  .learn-more-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .feature-card,
+  .partnership-card {
+    padding: 2rem 1rem;
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+  }
+}
