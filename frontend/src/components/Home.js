@@ -1,7 +1,7 @@
-// Enhanced Home.js - Professional, Traffic-Optimized
+// Enhanced Home.js - Trust Bar Removed for Minimalism
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaTrophy, FaFileAlt, FaHandshake, FaUsers, FaChartLine } from 'react-icons/fa';
+import { FaTrophy, FaFileAlt, FaHandshake } from 'react-icons/fa';
 
 function Home() {
   return (
@@ -28,22 +28,6 @@ function Home() {
         <div className="button-group">
           <Link to="/projects" className="cta-button secondary-btn">Explore Innovations</Link>
           <Link to="/xeriscoin" className="cta-button glowing-btn">Discover XerisCoin</Link>
-        </div>
-      </div>
-
-      {/* New Trust Bar - Quick Credibility Boost */}
-      <div className="trust-bar fade-in">
-        <div className="trust-item">
-          <FaTrophy className="trust-icon" />
-          <span>Patent Pending</span>
-        </div>
-        <div className="trust-item">
-          <FaChartLine className="trust-icon" />
-          <span>10K+ TPS</span>
-        </div>
-        <div className="trust-item">
-          <FaUsers className="trust-icon" />
-          <span>Activate Partnership</span>
         </div>
       </div>
 
