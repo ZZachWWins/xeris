@@ -1,7 +1,7 @@
-// Updated TestnetBeta.js (Native Netlify Submission - No Fetch)
+// Updated TestnetBeta.js (Fixed Syntax for Build - Native Netlify Submission)
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { FaMobileAlt, FaRocket, FaShieldAlt } from 'react-icons/fa';
-import { useSearchParams } from 'react-router-dom'; // For success detection
 
 function TestnetBeta() {
   const [searchParams] = useSearchParams();
@@ -59,17 +59,17 @@ function TestnetBeta() {
           name="testnet-beta-signup"
           method="POST"
           data-netlify="true"
-          netlify-honeypot="bot-field"  {/* Note: Changed to netlify-honeypot attr */}
-          action="/?success=true"  {/* Redirect back with success param */}
+          data-netlify-honeypot="bot-field"
+          action="/testnet-beta?success=true"
           className="testnet-form"
           noValidate
         >
           <p className="hidden">
             <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-          </p>  {/* Inline honeypot for better spam protection */}
+          </p>
 
           <input type="hidden" name="form-name" value="testnet-beta-signup" />
-          <input type="hidden" name="redirect" value="/testnet-beta?success=true" />  {/* Ensure redirect */}
+          <input type="hidden" name="redirect" value="/testnet-beta?success=true" />
 
           <div className="form-group">
             <label htmlFor="name" className="form-label">Full Legal Name (Required for NDA)</label>
