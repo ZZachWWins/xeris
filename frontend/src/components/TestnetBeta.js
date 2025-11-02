@@ -1,33 +1,18 @@
-// Updated Component: TestnetBeta.js (Fully Working Netlify Form)
-import React, { useState } from 'react';
+// Updated TestnetBeta.js (Native Netlify Submission - No Fetch)
+import React, { useState, useEffect } from 'react';
 import { FaMobileAlt, FaRocket, FaShieldAlt } from 'react-icons/fa';
+import { useSearchParams } from 'react-router-dom'; // For success detection
 
 function TestnetBeta() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [searchParams] = useSearchParams();
   const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage('');
-
-    const form = e.target;
-    fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new FormData(form)
-    })
-      .then(() => {
-        setSubmitMessage('Thank you! You\'ve been added to the beta waitlist. Check your email for NDA details.');
-        form.reset();
-        setIsSubmitting(false);
-      })
-      .catch((error) => {
-        console.error('Form submission error:', error);
-        setSubmitMessage('There was an error submitting the form. Please try again.');
-        setIsSubmitting(false);
-      });
-  };
+  // Detect success redirect from Netlify
+  useEffect(() => {
+    if (searchParams.get('success') === 'true') {
+      setSubmitMessage('Thank you! You\'ve been added to the beta waitlist. Check your email for NDA details.');
+    }
+  }, [searchParams]);
 
   return (
     <section className="testnet-beta-section">
@@ -74,13 +59,17 @@ function TestnetBeta() {
           name="testnet-beta-signup"
           method="POST"
           data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
+          netlify-honeypot="bot-field"  {/* Note: Changed to netlify-honeypot attr */}
+          action="/?success=true"  {/* Redirect back with success param */}
           className="testnet-form"
           noValidate
         >
+          <p className="hidden">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+          </p>  {/* Inline honeypot for better spam protection */}
+
           <input type="hidden" name="form-name" value="testnet-beta-signup" />
-          <input type="text" name="bot-field" style={{ display: 'none' }} />
+          <input type="hidden" name="redirect" value="/testnet-beta?success=true" />  {/* Ensure redirect */}
 
           <div className="form-group">
             <label htmlFor="name" className="form-label">Full Legal Name (Required for NDA)</label>
@@ -117,8 +106,8 @@ function TestnetBeta() {
             />
           </div>
 
-          <button type="submit" className="cta-btn glowing-btn" disabled={isSubmitting}>
-            {isSubmitting ? 'Signing Up...' : 'Join the Beta Waitlist'}
+          <button type="submit" className="cta-btn glowing-btn">
+            Join the Beta Waitlist
           </button>
 
           {submitMessage && <p className="submit-message">{submitMessage}</p>}
