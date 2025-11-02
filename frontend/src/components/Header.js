@@ -44,10 +44,13 @@ function Header() {
           <Link to="/xeriscoin" className={`nav-link ${window.location.pathname === '/xeriscoin' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>XerisCoin</Link>
         </Tilt>
         <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
-          <Link to="/xerissol" className={`nav-link ${window.location.pathname === '/xerissol' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>XerisSOL</Link> {/* New link */}
+          <Link to="/testnet-beta" className={`nav-link ${window.location.pathname === '/testnet-beta' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Testnet Beta</Link> {/* New link */}
         </Tilt>
         <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
-          <Link to="/data" className={`nav-link ${window.location.pathname === '/data' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Data</Link> {/* New link */}
+          <Link to="/xerissol" className={`nav-link ${window.location.pathname === '/xerissol' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>XerisSOL</Link>
+        </Tilt>
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
+          <Link to="/data" className={`nav-link ${window.location.pathname === '/data' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Data</Link>
         </Tilt>
       </nav>
       <div className="mobile-nav-toggle" onClick={toggleMenu}>
