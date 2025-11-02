@@ -1778,3 +1778,144 @@ body {
     font-size: 3rem;
   }
 }
+/* Add to App.css - Testnet Beta Styles (Leveraging Existing CSS for Beauty) */
+.testnet-beta-section {
+  padding: 5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.testnet-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #fff, #007BFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.testnet-text {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.testnet-features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.testnet-features .detail-card {
+  max-width: 350px;
+  text-align: center;
+}
+
+.testnet-features .detail-icon {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.testnet-form {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.testnet-form .cta-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submit-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 123, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.testnet-note {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-style: italic;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .testnet-beta-section {
+    padding: 3rem 1rem;
+  }
+
+  .testnet-title {
+    font-size: 2.5rem;
+  }
+
+  .testnet-text {
+    font-size: 1.1rem;
+  }
+
+  .testnet-features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testnet-form {
+    padding: 2rem;
+  }
+}

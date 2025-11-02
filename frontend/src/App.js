@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import XerisCoin from './components/XerisCoin';
 import Data from './components/Data'; // New import
 import XerisSOL from './components/XerisSOL'; // New import
+import TestnetBeta from './components/TestnetBeta'; // New import for beta signup
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/xeriscoin" element={<XerisCoin />} />
             <Route path="/data" element={<Data />} /> {/* New route */}
             <Route path="/xerissol" element={<XerisSOL />} /> {/* New route */}
+            <Route path="/testnet-beta" element={<TestnetBeta />} /> {/* New route for beta signup */}
           </Routes>
         </div>
         <Footer />
