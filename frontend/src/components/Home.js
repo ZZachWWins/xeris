@@ -9,7 +9,7 @@ function Home() {
       <div 
         className="hero-bg" 
         style={{
-          backgroundImage: `ur[](https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,c_fill,w_auto,h_auto,g_center/v1/xeris1_bu97q1.jpg)`,
+          backgroundImage: `ur[](https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,c_fill,w_auto,h_auto,g_center/xeris1_bu97q1.jpg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
