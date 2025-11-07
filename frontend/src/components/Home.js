@@ -6,7 +6,15 @@ import { FaTrophy, FaFileAlt, FaHandshake } from 'react-icons/fa';
 function Home() {
   return (
     <section className="hero">
-      <div className="hero-bg"></div>
+      <div 
+        className="hero-bg" 
+        style={{
+          backgroundImage: `ur[](https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,c_fill,w_auto,h_auto,g_center/v1/xeris1_bu97q1.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      ></div>
       <div className="hero-content">
         <h1 className="hero-title">Xeris Web Co.: Pioneering Secure Payments</h1>
         <p className="hero-text">
