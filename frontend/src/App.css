@@ -82,6 +82,7 @@ body {
   position: relative;
   z-index: 1; /* Above overlay */
 }
+/* Updated .hero-bg for Image + Glassmorphism Animated Overlay */
 .hero-bg {
   position: absolute;
   top: 0;
@@ -92,16 +93,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background: linear-gradient( /* Fallback if image fails */
-    135deg,
-    #007BFF 0%,
-    #0056B3 25%,
-    #17A2B8 50%,
-    #0056B3 75%,
-    #007BFF 100%
-  );
-  z-index: -1;
-  animation: imageShift 20s ease infinite;
+  z-index: -2; /* Behind overlay */
 }
 
 .hero-bg::before {
@@ -111,18 +103,26 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 10, 0.4); /* Lighter overlay for your blue image */
-  z-index: -1;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,      /* Subtle white fade-in */
+    rgba(23, 162, 184, 0.2) 25%,      /* Cyan glass tint */
+    rgba(0, 123, 255, 0.15) 50%,      /* Blue glass core */
+    rgba(23, 162, 184, 0.2) 75%,      /* Cyan fade-out */
+    rgba(255, 255, 255, 0.05) 100%    /* Near-transparent white */
+  );
+  background-size: 400% 400%; /* Larger size for smooth scroll */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle glass border glow */
+  z-index: -1; /* Above image, below content */
+  animation: glassGradientShift 8s ease-in-out infinite; /* Faster, smoother scroll */
 }
 
-@keyframes imageShift {
-  0%, 100% { background-position: center top; }
-  50% { background-position: center bottom; }
-}
-
-@keyframes imageShift {
-  0%, 100% { background-position: center top; }
-  50% { background-position: center bottom; } /* Gentle vertical shift for parallax feel */
+@keyframes glassGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .hero-title {
   font-size: 5rem;
