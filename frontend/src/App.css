@@ -88,13 +88,20 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,c_fill,w_auto,h_auto,g_center/v1/xeris1_bu97q1.jpg');
+  background-image: url('https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,c_fill,w_auto,h_auto,g_center/v1762553601/xeris1_bu97q1.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background: linear-gradient( /* Fallback if image fails */
+    135deg,
+    #007BFF 0%,
+    #0056B3 25%,
+    #17A2B8 50%,
+    #0056B3 75%,
+    #007BFF 100%
+  );
   z-index: -1;
-  opacity: 1; /* Full opacity for image; overlay handles dimming */
-  animation: imageShift 20s ease infinite; /* Slower, subtler animation for image */
+  animation: imageShift 20s ease infinite;
 }
 
 .hero-bg::before {
@@ -104,8 +111,13 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 10, 0.6); /* Dark overlay for text readability; adjust 0.6 to 0.4-0.8 as needed */
+  background: rgba(10, 10, 10, 0.4); /* Lighter overlay for your blue image */
   z-index: -1;
+}
+
+@keyframes imageShift {
+  0%, 100% { background-position: center top; }
+  50% { background-position: center bottom; }
 }
 
 @keyframes imageShift {
