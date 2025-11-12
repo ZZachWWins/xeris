@@ -1,10 +1,19 @@
-// Updated XerisCoin.js - Professional Pump.fun Focus
+// Updated XerisCoin.js - Added Full-Size Hero Image at Top
 import React from 'react';
 import { FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket } from 'react-icons/fa';
 
 function XerisCoin() {
   return (
     <section className="xeriscoin-section">
+      {/* New Hero Image - Full Size at Top */}
+      <div className="xeriscoin-hero-image">
+        <img 
+          src="https://res.cloudinary.com/di6yjluli/image/upload/f_auto,q_auto/v1/IMG_20251030_201639_467_n9omp6.jpg" 
+          alt="XerisCoin Hero Image" 
+          className="hero-img-full"
+        />
+      </div>
+      
       <h2 className="xeriscoin-title">XerisCoin: The Native Token for Real-World Asset Innovation</h2>
       <p className="xeriscoin-text">
         <strong>XerisCoin ($XERIS)</strong>, patent-pending (US #63/887,511), powers our Layer 1 blockchain with triple consensus (PoW, PoH, PoS) for 10,000+ TPS. Q3 2025 testnet delivered 100% uptime, validating scalability for tokenized assets. Acquire via our pump.fun launch—backed 1:1 in USD value and redeemable 5:1 in $XERIS from the treasury on mainnet.
