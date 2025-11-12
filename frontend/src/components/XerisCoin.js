@@ -1,4 +1,4 @@
-// Updated XerisCoin.js - Added Full-Size Hero Image at Top
+// Updated XerisCoin.js - Fixed ESLint Alt Text
 import React from 'react';
 import { FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket } from 'react-icons/fa';
 
@@ -9,7 +9,7 @@ function XerisCoin() {
       <div className="xeriscoin-hero-image">
         <img 
           src="https://res.cloudinary.com/di6yjluli/image/upload/f_auto,q_auto/v1/IMG_20251030_201639_467_n9omp6.jpg" 
-          alt="XerisCoin Hero Image" 
+          alt="XerisCoin promotional banner" 
           className="hero-img-full"
         />
       </div>
