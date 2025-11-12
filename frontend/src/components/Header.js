@@ -1,4 +1,4 @@
-// Updated Header.js
+// Updated Header.js - Logo Image on Top Right
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-parallax-tilt';
@@ -22,11 +22,6 @@ function Header() {
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="logo-container">
-        <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} className="logo-tilt">
-          <h1 className="logo">Xeris Web Co.</h1>
-        </Tilt>
-      </div>
       <nav className={`nav ${showMenu ? 'mobile-open' : ''}`}>
         <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
           <Link to="/" className={`nav-link ${window.location.pathname === '/' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Home</Link>
@@ -44,7 +39,7 @@ function Header() {
           <Link to="/xeriscoin" className={`nav-link ${window.location.pathname === '/xeriscoin' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>XerisCoin</Link>
         </Tilt>
         <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
-          <Link to="/testnet-beta" className={`nav-link ${window.location.pathname === '/testnet-beta' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Testnet Beta</Link> {/* New link */}
+          <Link to="/testnet-beta" className={`nav-link ${window.location.pathname === '/testnet-beta' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Testnet Beta</Link>
         </Tilt>
         <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
           <Link to="/xerissol" className={`nav-link ${window.location.pathname === '/xerissol' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>XerisSOL</Link>
@@ -53,8 +48,20 @@ function Header() {
           <Link to="/data" className={`nav-link ${window.location.pathname === '/data' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Data</Link>
         </Tilt>
       </nav>
-      <div className="mobile-nav-toggle" onClick={toggleMenu}>
-        {showMenu ? <FaTimes className="menu-icon" /> : <FaBars className="menu-icon" />}
+
+      <div className="header-right">
+        <div className="logo-container">
+          <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} className="logo-tilt">
+            <img 
+              src="https://res.cloudinary.com/di6yjluli/image/upload/c_fill,w_150,h_150,g_center/v1/IMG_2248_aeraya.jpg" 
+              alt="Xeris Web Co. Logo" 
+              className="logo" 
+            />
+          </Tilt>
+        </div>
+        <div className="mobile-nav-toggle" onClick={toggleMenu}>
+          {showMenu ? <FaTimes className="menu-icon" /> : <FaBars className="menu-icon" />}
+        </div>
       </div>
     </header>
   );

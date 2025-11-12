@@ -1673,6 +1673,48 @@ body {
   padding: 0 1rem;
   font-style: italic;
 }
+
+/* Header Right Container - For Logo + Mobile Toggle */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between logo and toggle */
+}
+
+/* Updated .logo for Image (Square Fit) */
+.logo {
+  width: 150px; /* Matches Cloudinary square crop; adjust if needed */
+  height: 150px;
+  object-fit: cover; /* Ensures perfect square without stretching */
+  border-radius: 0; /* Sharp square edges; add 50% for circle if preferred */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border for definition */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* White glow to match theme */
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05); /* Slight hover zoom */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.5); /* Blue + white glow */
+}
+
+/* Mobile Adjustments for Logo */
+@media (max-width: 768px) {
+  .logo {
+    width: 100px; /* Smaller square on mobile for better fit */
+    height: 100px;
+  }
+  
+  .header-right {
+    gap: 0.5rem; /* Tighter gap on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+}
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .testnet-beta-section {
