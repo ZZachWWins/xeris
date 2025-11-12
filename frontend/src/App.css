@@ -89,40 +89,25 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://res.cloudinary.com/di6yjluli/image/upload/q_auto,f_auto,c_fill,w_auto,h_auto,g_center/v1762553601/xeris1_bu97q1.png');
-  background-size: cover;
+  background-image: url('https://res.cloudinary.com/di6yjluli/image/upload/f_auto,q_auto,c_scale/v1/IMG_20251030_201639_467_n9omp6.jpg');
+  background-size: cover; /* Covers the hero fully; change to 'contain' if you want letterboxing to show entirety without crop */
   background-position: center;
   background-repeat: no-repeat;
   z-index: -2; /* Behind overlay */
+  animation: bgFadeIn 1.5s ease-in-out; /* Subtle entrance for the new image */
 }
-
-.hero-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,      /* Subtle white fade-in */
-    rgba(23, 162, 184, 0.2) 25%,      /* Cyan glass tint */
-    rgba(0, 123, 255, 0.15) 50%,      /* Blue glass core */
-    rgba(23, 162, 184, 0.2) 75%,      /* Cyan fade-out */
-    rgba(255, 255, 255, 0.05) 100%    /* Near-transparent white */
-  );
-  background-size: 400% 400%; /* Larger size for smooth scroll */
-  backdrop-filter: blur(10px); /* Frosted glass effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle glass border glow */
-  z-index: -1; /* Above image, below content */
-  animation: glassGradientShift 8s ease-in-out infinite; /* Faster, smoother scroll */
+@keyframes bgFadeIn {
+  0% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
 }
-
-@keyframes glassGradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Ensure content remains readable over the image (adjust if needed) */
+.hero-content {
+  position: relative;
+  z-index: 1; /* Above background */
+  background: rgba(10, 10, 10, 0.4); /* Optional: Light dark tint on content only for text legibility; remove if too much */
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(5px); /* Subtle frosted glass on content area */
 }
 .hero-title {
   font-size: 5rem;
@@ -1673,14 +1658,12 @@ body {
   padding: 0 1rem;
   font-style: italic;
 }
-
 /* Header Right Container - For Logo + Mobile Toggle */
 .header-right {
   display: flex;
   align-items: center;
   gap: 1rem; /* Space between logo and toggle */
 }
-
 /* Updated .logo for Image (Square Fit) */
 .logo {
   width: 150px; /* Matches Cloudinary square crop; adjust if needed */
@@ -1691,24 +1674,21 @@ body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* White glow to match theme */
   transition: all 0.3s ease;
 }
-
 .logo:hover {
   transform: scale(1.05); /* Slight hover zoom */
   box-shadow: 0 0 15px rgba(0, 123, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.5); /* Blue + white glow */
 }
-
 /* Mobile Adjustments for Logo */
 @media (max-width: 768px) {
   .logo {
     width: 100px; /* Smaller square on mobile for better fit */
     height: 100px;
   }
-  
+ 
   .header-right {
     gap: 0.5rem; /* Tighter gap on mobile */
   }
 }
-
 @media (max-width: 480px) {
   .logo {
     width: 80px;
@@ -1724,35 +1704,30 @@ body {
   border-radius: 20px; /* Matches section border-radius for cohesion */
   box-shadow: 0 8px 30px rgba(0, 123, 255, 0.3); /* Blue shadow to tie into theme */
 }
-
 .hero-img-full {
   width: 100%;
   height: auto; /* Preserves original aspect ratio - no distortion or cropping */
   display: block;
   transition: transform 0.3s ease; /* Smooth zoom on hover */
 }
-
 .hero-img-full:hover {
   transform: scale(1.02); /* Subtle zoom for interactivity */
 }
-
 .xeriscoin-hero-image img {
   position: relative;
   z-index: 0;
-} */
-
+}
 /* Mobile Responsiveness for Hero Image */
 @media (max-width: 768px) {
   .xeriscoin-hero-image {
     margin-bottom: 2rem;
     border-radius: 15px; /* Slightly smaller radius on mobile */
   }
-  
+ 
   .hero-img-full {
     border-radius: 15px; /* Ensure rounded edges on mobile */
   }
 }
-
 @media (max-width: 480px) {
   .xeriscoin-hero-image {
     margin-bottom: 1.5rem;
@@ -1777,7 +1752,6 @@ body {
     padding: 2rem;
   }
 }
-
 /* Hero Image Responsiveness */
 @media (max-width: 768px) {
   .hero-bg {
@@ -1785,13 +1759,11 @@ body {
     background-attachment: scroll; /* Prevent fixed positioning glitches on scroll */
   }
 }
-
 @media (max-width: 480px) {
   .hero-bg::before {
     background: rgba(10, 10, 10, 0.7); /* Slightly darker overlay on tiny screens for contrast */
   }
 }
-
 /* Enhanced Mobile Responsiveness - Addressing Common Complaints */
 @media (max-width: 768px) {
   /* General padding reductions for tighter mobile layout */
@@ -1799,7 +1771,7 @@ body {
   .data-section, .gallery-section, .testnet-beta-section {
     padding: 3rem 1rem;
   }
-  
+ 
   /* Ensure all text wraps and scales appropriately */
   .hero-title, .about-title, .projects-title, .contact-title, .xeriscoin-title,
   .milestones-title, .data-title, .gallery-title {
@@ -1807,67 +1779,66 @@ body {
     line-height: 1.2;
     word-break: break-word;
   }
-  
+ 
   /* Form inputs and buttons full-width on mobile */
   .form-input, .cta-button, .cta-btn, .glowing-btn, .learn-more-btn, .secondary-btn {
     width: 100%;
     max-width: 100%;
     margin-bottom: 1rem;
   }
-  
+ 
   /* Grid and flex items stack cleanly */
   .xeriscoin-details, .testnet-features, .button-group {
     flex-direction: column;
     gap: 1rem;
   }
-  
+ 
   /* Improved touch interactions */
   .nav-link, .social-icon, .mobile-nav-toggle {
     min-height: 44px;
     display: flex;
     align-items: center;
   }
-  
+ 
   /* Prevent zoom on inputs */
   input[type="text"], input[type="email"], input[type="tel"], textarea {
     font-size: 16px; /* iOS Safari fix */
   }
 }
-
 @media (max-width: 480px) {
   /* Extra tight for very small screens */
   .hero {
     min-height: 90vh; /* Slightly shorter to fit nav/footer */
   }
-  
+ 
   .hero-title {
     font-size: 2rem;
   }
-  
+ 
   .hero-text {
     font-size: 1rem;
     line-height: 1.4;
   }
-  
+ 
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+ 
   .social-icons {
     justify-content: center;
   }
-  
+ 
   /* Charts and grids single-column only */
   .charts-grid, .project-grid, .about-features, .milestones-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+ 
   .chart-card, .project-card, .feature-card, .milestone-card {
     padding: 1.5rem;
   }
-  
+ 
   /* Gallery items taller on small screens */
   .gallery-media, .gallery-media-fallback {
     height: 180px;
