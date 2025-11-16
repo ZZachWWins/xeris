@@ -1,7 +1,7 @@
-// Enhanced Home.js - Trust Bar Removed for Minimalism
+// Updated Home.js - Added Alpha Release Callout
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaTrophy, FaFileAlt, FaHandshake } from 'react-icons/fa';
+import { FaTrophy, FaFileAlt, FaHandshake, FaCode } from 'react-icons/fa';
 
 function Home() {
   return (
@@ -28,6 +28,16 @@ function Home() {
         <div className="button-group">
           <Link to="/projects" className="cta-button secondary-btn">Explore Innovations</Link>
           <Link to="/xeriscoin" className="cta-button glowing-btn">Discover XerisCoin</Link>
+        </div>
+
+        {/* Alpha Release Callout */}
+        <div className="alpha-release-callout">
+          <FaCode className="alpha-icon" />
+          <h3>XerisCoin Alpha Released</h3>
+          <p>Download the local alpha node from GitHub and mine blocks today—patent-pending triple consensus in action.</p>
+          <a href="https://github.com/ZZachWWins/xeriscoin_testnet_localalpha_v1" target="_blank" rel="noopener noreferrer" className="cta-button glowing-btn">
+            Get Alpha Node
+          </a>
         </div>
       </div>
 

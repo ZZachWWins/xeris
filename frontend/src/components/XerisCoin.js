@@ -1,6 +1,6 @@
-// Updated XerisCoin.js - Fixed ESLint Alt Text
+// Updated XerisCoin.js - Added Alpha Download Button
 import React from 'react';
-import { FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket } from 'react-icons/fa';
+import { FaMap, FaTelegram, FaExternalLinkAlt, FaBuilding, FaHandshake, FaRocket, FaCode } from 'react-icons/fa';
 
 function XerisCoin() {
   return (
@@ -67,6 +67,10 @@ function XerisCoin() {
         </a>
         <a href="https://pump.fun/9ezFthWrDUpSSeMdpLW6SDD9TJigHdc4AuQ5QN5bpump" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">
           <FaRocket className="btn-icon" /> Acquire on pump.fun
+        </a>
+        {/* Alpha Release Button */}
+        <a href="https://github.com/ZZachWWins/xeriscoin_testnet_localalpha_v1" target="_blank" rel="noopener noreferrer" className="cta-btn glowing-btn">
+          <FaCode className="btn-icon" /> Download Alpha Node
         </a>
       </div>
     </section>
