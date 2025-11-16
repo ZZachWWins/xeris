@@ -33,7 +33,7 @@ function Terms() {
               The Services enable users to interact with our patent-pending triple consensus blockchain (PoW, PoH, PoS) for high-throughput transactions (10,000+ TPS target). This includes testnet participation, token staking, RWA tokenization, and integrations like the Activate Supplements partnership. Tokens like $XERIS are utility assets; they are not securities or investments.
             </p>
             <p>
-              Beta access requires NDA signing and is provided "as is." Mainnet launch is targeted for Q1 2026, subject to delays.
+              Beta access requires NDA signing and is provided "as is." Mainnet launch is targeted for Q1 2026, subject to delays. The alpha node software (xrs-node) is provided for local testing only and may not be used for production or networked environments without prior written consent.
             </p>
           </section>
 
@@ -103,7 +103,7 @@ function Terms() {
           <section className="terms-section">
             <h2>10. Miscellaneous</h2>
             <p>
-              These Terms constitute the entire agreement. If any provision is invalid, the remainder remains effective. No waiver of rights. Force majeure events excuse performance.
+              These Terms constitute the entire agreement and supersede any prior agreements for alpha access. If any provision is invalid, the remainder remains effective. No waiver of rights. Force majeure events excuse performance.
             </p>
           </section>
         </div>
