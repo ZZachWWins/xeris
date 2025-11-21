@@ -1,4 +1,4 @@
-// Updated Home.js - Removed Unused changeDirection Function
+// Updated Home.js - Removed Controls and Speed Indicator
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrophy, FaFileAlt, FaHandshake, FaCode } from 'react-icons/fa';
@@ -10,7 +10,6 @@ function Home() {
   const scannerCanvasRef = useRef(null);
   const cardStreamRef = useRef(null);
   const cardLineRef = useRef(null);
-  const speedValueRef = useRef(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -18,9 +17,8 @@ function Home() {
     const scannerCanvas = scannerCanvasRef.current;
     const cardStream = cardStreamRef.current;
     const cardLine = cardLineRef.current;
-    const speedValue = speedValueRef.current;
 
-    if (!container || !particleCanvas || !scannerCanvas || !cardStream || !cardLine || !speedValue) return;
+    if (!container || !particleCanvas || !scannerCanvas || !cardStream || !cardLine) return;
 
     window.cardStream = null;
     window.particleSystem = null;
@@ -32,7 +30,6 @@ function Home() {
       constructor() {
         this.container = cardStream;
         this.cardLine = cardLine;
-        this.speedIndicator = speedValue;
         this.position = 0;
         this.velocity = 120;
         this.direction = -1;
@@ -111,7 +108,6 @@ function Home() {
           this.velocity = 120;
         }
         this.isAnimating = true;
-        this.updateSpeedIndicator();
         document.body.style.userSelect = "";
         document.body.style.cursor = "";
       }
@@ -127,7 +123,6 @@ function Home() {
           }
           this.position += this.velocity * this.direction * deltaTime;
           this.updateCardPosition();
-          this.updateSpeedIndicator();
         }
         requestAnimationFrame(() => this.animate());
       }
@@ -141,32 +136,6 @@ function Home() {
         }
         this.cardLine.style.transform = `translateX(${this.position}px)`;
         this.updateCardClipping();
-      }
-      updateSpeedIndicator() {
-        this.speedIndicator.textContent = Math.round(this.velocity);
-      }
-      toggleAnimation() {
-        this.isAnimating = !this.isAnimating;
-        const btn = document.querySelector(".control-btn");
-        if (btn) btn.textContent = this.isAnimating ? "⏸️ Pause" : "▶️ Play";
-        if (this.isAnimating) this.cardLine.style.animation = "none";
-      }
-      resetPosition() {
-        this.position = this.containerWidth;
-        this.velocity = 120;
-        this.direction = -1;
-        this.isAnimating = true;
-        this.isDragging = false;
-        this.cardLine.style.animation = "none";
-        this.cardLine.style.transform = `translateX(${this.position}px)`;
-        this.cardLine.classList.remove("dragging");
-        this.updateSpeedIndicator();
-        const btn = document.querySelector(".control-btn");
-        if (btn) btn.textContent = "⏸️ Pause";
-      }
-      changeDirection() {
-        this.direction *= -1;
-        this.updateSpeedIndicator();
       }
       onWheel(e) {
         e.preventDefault();
@@ -943,9 +912,6 @@ function Home() {
     };
   }, []);
 
-  const toggleAnimation = () => window.cardStream?.toggleAnimation();
-  const resetPosition = () => window.cardStream?.resetPosition();
-
   return (
     <section className="hero">
       <div className="hero-bg"></div>
@@ -972,43 +938,6 @@ function Home() {
               margin: 0;
               padding: 0;
               box-sizing: border-box;
-            }
-            .payment-transformer .controls {
-              position: absolute;
-              top: 10px;
-              left: 10px;
-              display: flex;
-              gap: 10px;
-              z-index: 100;
-            }
-            .payment-transformer .control-btn {
-              padding: 10px 20px;
-              background: rgba(255, 255, 255, 0.2);
-              border: none;
-              border-radius: 25px;
-              color: white;
-              font-weight: bold;
-              cursor: pointer;
-              backdrop-filter: blur(5px);
-              transition: all 0.3s ease;
-              font-size: 14px;
-            }
-            .payment-transformer .control-btn:hover {
-              background: rgba(255, 255, 255, 0.3);
-              transform: translateY(-2px);
-              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            }
-            .payment-transformer .speed-indicator {
-              position: absolute;
-              top: 20px;
-              right: 20px;
-              color: white;
-              font-size: 16px;
-              background: rgba(0, 0, 0, 0.3);
-              padding: 8px 16px;
-              border-radius: 20px;
-              backdrop-filter: blur(5px);
-              z-index: 100;
             }
             .payment-transformer .container {
               position: relative;
@@ -1176,13 +1105,6 @@ function Home() {
               display: none;
             }
           `}</style>
-          <div className="controls">
-            <button className="control-btn" onClick={toggleAnimation}>⏸️ Pause</button>
-            <button className="control-btn" onClick={resetPosition}>🔄 Reset</button>
-          </div>
-          <div className="speed-indicator">
-            Speed: <span ref={speedValueRef}>120</span> px/s
-          </div>
           <div ref={containerRef} className="container">
             <canvas ref={particleCanvasRef} id="particleCanvas"></canvas>
             <canvas ref={scannerCanvasRef} id="scannerCanvas"></canvas>
