@@ -1,4 +1,5 @@
 // Updated Home.js - Integrated Payment Scanner Animation with Custom Card Images
+// Fixed ESLint unused variable issue by removing unused 'codeChars'
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrophy, FaFileAlt, FaHandshake, FaCode } from 'react-icons/fa';
@@ -29,9 +30,6 @@ function Home() {
     window.particleScanner = null;
     window.setScannerScanning = null;
     window.getScannerStats = null;
-
-    // Paste the entire JS code here, adapted for refs
-    const codeChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789(){}[]<>;:,._-+=!@#$%^&*|\\/\"'`~?";
 
     class CardStreamController {
       constructor() {
