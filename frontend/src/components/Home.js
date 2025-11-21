@@ -1,4 +1,4 @@
-// Updated Home.js - Removed Direction Button & Inspiration Credit, Moved Scanner Under Header
+// Updated Home.js - Removed Unused changeDirection Function
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrophy, FaFileAlt, FaHandshake, FaCode } from 'react-icons/fa';
@@ -945,7 +945,6 @@ function Home() {
 
   const toggleAnimation = () => window.cardStream?.toggleAnimation();
   const resetPosition = () => window.cardStream?.resetPosition();
-  const changeDirection = () => window.cardStream?.changeDirection();
 
   return (
     <section className="hero">
