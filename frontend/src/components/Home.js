@@ -1,4 +1,4 @@
-// Updated Home.js - Integrated and Fixed CodePen Animation with Scoped CSS
+// Updated Home.js - Removed Direction Button & Inspiration Credit, Moved Scanner Under Header
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrophy, FaFileAlt, FaHandshake, FaCode } from 'react-icons/fa';
@@ -955,6 +955,245 @@ function Home() {
         <p className="hero-text">
           XerisCoin ($XERIS)—patent-pending (US #63/887,511)—drives our Layer 1 blockchain with triple consensus (PoW, PoH, PoS) for 10,000+ TPS. Q3 2025 testnet: 100% uptime. Acquire now via pump.fun and unlock tokenized real-world assets.
         </p>
+
+        {/* Payment Transformation Scanner - Moved under header */}
+        <div className="payment-transformer">
+          <style>{`
+            @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap");
+            .payment-transformer {
+              position: relative;
+              width: 100%;
+              height: 300px;
+              background: #000;
+              overflow: hidden;
+              margin: 2rem 0;
+              border-radius: 10px;
+            }
+            .payment-transformer * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            .payment-transformer .controls {
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              display: flex;
+              gap: 10px;
+              z-index: 100;
+            }
+            .payment-transformer .control-btn {
+              padding: 10px 20px;
+              background: rgba(255, 255, 255, 0.2);
+              border: none;
+              border-radius: 25px;
+              color: white;
+              font-weight: bold;
+              cursor: pointer;
+              backdrop-filter: blur(5px);
+              transition: all 0.3s ease;
+              font-size: 14px;
+            }
+            .payment-transformer .control-btn:hover {
+              background: rgba(255, 255, 255, 0.3);
+              transform: translateY(-2px);
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            .payment-transformer .speed-indicator {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              color: white;
+              font-size: 16px;
+              background: rgba(0, 0, 0, 0.3);
+              padding: 8px 16px;
+              border-radius: 20px;
+              backdrop-filter: blur(5px);
+              z-index: 100;
+            }
+            .payment-transformer .container {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .payment-transformer .card-stream {
+              position: absolute;
+              width: 100%;
+              height: 250px;
+              display: flex;
+              align-items: center;
+              overflow: visible;
+            }
+            .payment-transformer .card-line {
+              display: flex;
+              align-items: center;
+              gap: 60px;
+              white-space: nowrap;
+              cursor: grab;
+              user-select: none;
+              will-change: transform;
+            }
+            .payment-transformer .card-line:active, .payment-transformer .card-line.dragging {
+              cursor: grabbing;
+            }
+            .payment-transformer .card-line.css-animated {
+              animation: scrollCards 40s linear infinite;
+            }
+            @keyframes scrollCards {
+              0% { transform: translateX(-100%); }
+              100% { transform: translateX(100%); }
+            }
+            .payment-transformer .card-wrapper {
+              position: relative;
+              width: 400px;
+              height: 250px;
+              flex-shrink: 0;
+            }
+            .payment-transformer .card {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 400px;
+              height: 250px;
+              border-radius: 15px;
+              overflow: hidden;
+            }
+            .payment-transformer .card-normal {
+              background: transparent;
+              box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              padding: 0;
+              color: white;
+              z-index: 2;
+              position: relative;
+              overflow: hidden;
+              clip-path: inset(0 0 0 var(--clip-right, 0%));
+            }
+            .payment-transformer .card-image {
+              width: 400px;
+              height: 250px;
+              object-fit: cover;
+              border-radius: 15px;
+              transition: all 0.3s ease;
+              filter: brightness(1.1) contrast(1.1);
+              box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+            .payment-transformer .card-image:hover {
+              filter: brightness(1.2) contrast(1.2);
+            }
+            .payment-transformer .card-ascii {
+              background: transparent;
+              z-index: 1;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 400px;
+              height: 250px;
+              border-radius: 15px;
+              overflow: hidden;
+              clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
+            }
+            .payment-transformer .card-logo {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              font-size: 18px;
+              font-weight: bold;
+              color: white;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .payment-transformer .ascii-content {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              color: rgba(220, 210, 255, 0.6);
+              font-family: "Courier New", monospace;
+              font-size: 11px;
+              line-height: 13px;
+              overflow: hidden;
+              white-space: pre;
+              animation: glitch 0.1s infinite linear alternate-reverse;
+              margin: 0;
+              padding: 0;
+              text-align: left;
+              vertical-align: top;
+              box-sizing: border-box;
+              -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.2) 100%);
+              mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.2) 100%);
+            }
+            @keyframes glitch {
+              0% { opacity: 1; }
+              15% { opacity: 0.9; }
+              16% { opacity: 1; }
+              49% { opacity: 0.8; }
+              50% { opacity: 1; }
+              99% { opacity: 0.9; }
+              100% { opacity: 1; }
+            }
+            .payment-transformer .scan-effect {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+              animation: scanEffect 0.6s ease-out;
+              pointer-events: none;
+              z-index: 5;
+            }
+            @keyframes scanEffect {
+              0% { transform: translateX(-100%); opacity: 0; }
+              50% { opacity: 1; }
+              100% { transform: translateX(100%); opacity: 0; }
+            }
+            .payment-transformer #particleCanvas {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              width: 100%;
+              height: 250px;
+              z-index: 0;
+              pointer-events: none;
+            }
+            .payment-transformer #scannerCanvas {
+              position: absolute;
+              top: 50%;
+              left: -3px;
+              transform: translateY(-50%);
+              width: 100%;
+              height: 300px;
+              z-index: 15;
+              pointer-events: none;
+            }
+            .payment-transformer .scanner {
+              display: none;
+            }
+          `}</style>
+          <div className="controls">
+            <button className="control-btn" onClick={toggleAnimation}>⏸️ Pause</button>
+            <button className="control-btn" onClick={resetPosition}>🔄 Reset</button>
+          </div>
+          <div className="speed-indicator">
+            Speed: <span ref={speedValueRef}>120</span> px/s
+          </div>
+          <div ref={containerRef} className="container">
+            <canvas ref={particleCanvasRef} id="particleCanvas"></canvas>
+            <canvas ref={scannerCanvasRef} id="scannerCanvas"></canvas>
+            <div className="scanner"></div>
+            <div ref={cardStreamRef} className="card-stream">
+              <div ref={cardLineRef} className="card-line"></div>
+            </div>
+          </div>
+        </div>
+
         <div className="partnership-teaser">
           <div className="card glow-card fade-in">
             <FaHandshake className="partnership-icon" />
@@ -976,268 +1215,6 @@ function Home() {
           <a href="https://github.com/ZZachWWins/xeriscoin_testnet_localalpha_v1" target="_blank" rel="noopener noreferrer" className="cta-button glowing-btn">
             Get Alpha Node
           </a>
-        </div>
-      </div>
-
-      {/* Payment Transformation Scanner */}
-      <div className="payment-transformer">
-        <style>{`
-          @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap");
-          .payment-transformer {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            background: #000;
-            overflow: hidden;
-            margin: 2rem 0;
-            border-radius: 10px;
-          }
-          .payment-transformer * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-          .payment-transformer .controls {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            display: flex;
-            gap: 10px;
-            z-index: 100;
-          }
-          .payment-transformer .control-btn {
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 25px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            font-size: 14px;
-          }
-          .payment-transformer .control-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          }
-          .payment-transformer .speed-indicator {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 16px;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 16px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-            z-index: 100;
-          }
-          .payment-transformer .container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          .payment-transformer .card-stream {
-            position: absolute;
-            width: 100%;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            overflow: visible;
-          }
-          .payment-transformer .card-line {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            white-space: nowrap;
-            cursor: grab;
-            user-select: none;
-            will-change: transform;
-          }
-          .payment-transformer .card-line:active, .payment-transformer .card-line.dragging {
-            cursor: grabbing;
-          }
-          .payment-transformer .card-line.css-animated {
-            animation: scrollCards 40s linear infinite;
-          }
-          @keyframes scrollCards {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-          }
-          .payment-transformer .card-wrapper {
-            position: relative;
-            width: 400px;
-            height: 250px;
-            flex-shrink: 0;
-          }
-          .payment-transformer .card {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 400px;
-            height: 250px;
-            border-radius: 15px;
-            overflow: hidden;
-          }
-          .payment-transformer .card-normal {
-            background: transparent;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 0;
-            color: white;
-            z-index: 2;
-            position: relative;
-            overflow: hidden;
-            clip-path: inset(0 0 0 var(--clip-right, 0%));
-          }
-          .payment-transformer .card-image {
-            width: 400px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            filter: brightness(1.1) contrast(1.1);
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
-          }
-          .payment-transformer .card-image:hover {
-            filter: brightness(1.2) contrast(1.2);
-          }
-          .payment-transformer .card-ascii {
-            background: transparent;
-            z-index: 1;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 400px;
-            height: 250px;
-            border-radius: 15px;
-            overflow: hidden;
-            clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
-          }
-          .payment-transformer .card-logo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-          }
-          .payment-transformer .ascii-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: rgba(220, 210, 255, 0.6);
-            font-family: "Courier New", monospace;
-            font-size: 11px;
-            line-height: 13px;
-            overflow: hidden;
-            white-space: pre;
-            animation: glitch 0.1s infinite linear alternate-reverse;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-            vertical-align: top;
-            box-sizing: border-box;
-            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.2) 100%);
-            mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.2) 100%);
-          }
-          @keyframes glitch {
-            0% { opacity: 1; }
-            15% { opacity: 0.9; }
-            16% { opacity: 1; }
-            49% { opacity: 0.8; }
-            50% { opacity: 1; }
-            99% { opacity: 0.9; }
-            100% { opacity: 1; }
-          }
-          .payment-transformer .scan-effect {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
-            animation: scanEffect 0.6s ease-out;
-            pointer-events: none;
-            z-index: 5;
-          }
-          @keyframes scanEffect {
-            0% { transform: translateX(-100%); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(100%); opacity: 0; }
-          }
-          .payment-transformer #particleCanvas {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 250px;
-            z-index: 0;
-            pointer-events: none;
-          }
-          .payment-transformer #scannerCanvas {
-            position: absolute;
-            top: 50%;
-            left: -3px;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 300px;
-            z-index: 15;
-            pointer-events: none;
-          }
-          .payment-transformer .inspiration-credit {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: "Roboto Mono", monospace;
-            font-size: 12px;
-            font-weight: 900;
-            color: #ff9a9c;
-            z-index: 1000;
-            text-align: center;
-          }
-          .payment-transformer .inspiration-credit a {
-            color: #ff9a9c;
-            text-decoration: none;
-            transition: color 0.3s ease;
-          }
-          .payment-transformer .inspiration-credit a:hover {
-            color: #ff7a7c;
-          }
-          .payment-transformer .scanner {
-            display: none;
-          }
-        `}</style>
-        <div className="controls">
-          <button className="control-btn" onClick={toggleAnimation}>⏸️ Pause</button>
-          <button className="control-btn" onClick={resetPosition}>🔄 Reset</button>
-          <button className="control-btn" onClick={changeDirection}>↔️ Direction</button>
-        </div>
-        <div className="speed-indicator">
-          Speed: <span ref={speedValueRef}>120</span> px/s
-        </div>
-        <div ref={containerRef} className="container">
-          <canvas ref={particleCanvasRef} id="particleCanvas"></canvas>
-          <canvas ref={scannerCanvasRef} id="scannerCanvas"></canvas>
-          <div className="scanner"></div>
-          <div ref={cardStreamRef} className="card-stream">
-            <div ref={cardLineRef} className="card-line"></div>
-          </div>
-        </div>
-        <div className="inspiration-credit">
-          Transforming Payments with XerisCoin • Inspired by <a href="https://evervault.com/" target="_blank" rel="noopener noreferrer">@evervault.com</a>
         </div>
       </div>
 
