@@ -61,7 +61,7 @@ function XerisSOL() {
         <h2 className="contact-title">Grow with Us: Submit Your Wallet</h2>
         <div className="contact-content">
           <p className="about-text">
-            Help us build the Xeris userbase ahead of Q4 2025 mainnet. Share your SOL address to get airdrop alerts, exclusive updates, and auto-bridge to real $XERIS. Every submit counts—let's launch strong together.
+            Help us build the Xeris userbase ahead of Q4 2025 mainnet. Share your SOL address to get airdrop alerts, exclusive updates. Every submit counts—let's launch strong together.
           </p>
           <form name="xerissol-address" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="contact-form">
             <input type="hidden" name="form-name" value="xerissol-address" />
@@ -121,7 +121,7 @@ function XerisSOL() {
           <FaExchangeAlt className="detail-icon" />
           <h3 className="landing-subtitle">Seamless Mainnet Swap</h3>
           <ul className="scripture-list">
-            <li>Your XerisSOL auto-converts to $XERIS</li>
+            <li>Your XerisSOL can be swapped to $XERIS</li>
             <li>Full value preserved at launch</li>
             <li>No hassle— just hold & grow</li>
           </ul>
