@@ -9,10 +9,11 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import XerisCoin from './components/XerisCoin';
-import Data from './components/Data'; // New import
-import XerisSOL from './components/XerisSOL'; // New import
-import TestnetBeta from './components/TestnetBeta'; // New import for beta signup
-import Terms from './components/Terms'; // New import for Terms of Service
+import Data from './components/Data'; 
+import XerisSOL from './components/XerisSOL'; 
+import TestnetBeta from './components/TestnetBeta'; 
+import Terms from './components/Terms'; 
+import BlockExplorer from './components/BlockExplorer'; // NEW: Import Block Explorer
 
 function App() {
   return (
@@ -28,10 +29,11 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/xeriscoin" element={<XerisCoin />} />
-            <Route path="/data" element={<Data />} /> {/* New route */}
-            <Route path="/xerissol" element={<XerisSOL />} /> {/* New route */}
-            <Route path="/testnet-beta" element={<TestnetBeta />} /> {/* New route for beta signup */}
-            <Route path="/terms" element={<Terms />} /> {/* New route for Terms of Service */}
+            <Route path="/data" element={<Data />} /> 
+            <Route path="/xerissol" element={<XerisSOL />} /> 
+            <Route path="/testnet-beta" element={<TestnetBeta />} /> 
+            <Route path="/terms" element={<Terms />} /> 
+            <Route path="/explorer" element={<BlockExplorer />} /> {/* NEW: Route for Block Explorer */}
           </Routes>
         </div>
         <Footer />

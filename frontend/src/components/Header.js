@@ -1,8 +1,8 @@
-// Updated Header.js - Logo Image on Top Right
+// Updated Header.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-parallax-tilt';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Assuming react-icons is installed
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -31,6 +31,10 @@ function Header() {
         </Tilt>
         <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
           <Link to="/projects" className={`nav-link ${window.location.pathname === '/projects' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Projects</Link>
+        </Tilt>
+        {/* NEW: Explorer Link */}
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
+          <Link to="/explorer" className={`nav-link ${window.location.pathname === '/explorer' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Explorer</Link>
         </Tilt>
         <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05}>
           <Link to="/contact" className={`nav-link ${window.location.pathname === '/contact' ? 'active' : ''}`} onClick={() => setShowMenu(false)}>Contact</Link>

@@ -1,4 +1,4 @@
-// Updated Footer.js with Testnet Beta link
+// Updated Footer.js
 import React from 'react';
 import { FaTwitter, FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
@@ -18,8 +18,9 @@ function Footer() {
             <li><a href="/" className="footer-link">Home</a></li>
             <li><a href="/about" className="footer-link">About</a></li>
             <li><a href="/projects" className="footer-link">Projects</a></li>
+            <li><a href="/explorer" className="footer-link">Block Explorer</a></li> {/* NEW Link */}
             <li><a href="/xeriscoin" className="footer-link">XerisCoin</a></li>
-            <li><a href="/testnet-beta" className="footer-link">Testnet Beta</a></li> {/* New link */}
+            <li><a href="/testnet-beta" className="footer-link">Testnet Beta</a></li>
             <li><a href="/xerissol" className="footer-link">XerisSOL</a></li>
             <li><a href="/data" className="footer-link">Data</a></li>
             <li><a href="/contact" className="footer-link">Contact</a></li>
