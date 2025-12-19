@@ -8,8 +8,15 @@ function BlockExplorer() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Replace with your actual Ubuntu Server API URL
   const RPC_ENDPOINT = '/api/blocks';
+
+  // Helper function to convert Byte Array [9, 64, ...] to Hex String "0940..."
+  const bytesToHex = (bytes) => {
+    if (!bytes || !Array.isArray(bytes)) return 'N/A';
+    return bytes
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+  };
 
   const fetchBlockchainData = useCallback(async () => {
     try {
@@ -17,23 +24,21 @@ function BlockExplorer() {
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       
-      // Assuming data is an array of recent blocks sorted by slot
-      if (data && data.length > 0) {
+      if (data && Array.isArray(data) && data.length > 0) {
         setLatestSlot(data[0].slot);
-        setRecentBlocks(data.slice(0, 10)); // Display last 10 blocks
+        setRecentBlocks(data.slice(0, 10));
       }
       setLoading(false);
       setError(null);
     } catch (err) {
       console.error('Error fetching blocks:', err);
-      setError('Connection to node failed.');
+      setError('Unable to connect to the Xeris network relay.');
       setLoading(false);
     }
   }, [RPC_ENDPOINT]);
 
   useEffect(() => {
     fetchBlockchainData();
-    // Poll every 5 seconds for real-time updates
     const interval = setInterval(fetchBlockchainData, 5000);
     return () => clearInterval(interval);
   }, [fetchBlockchainData]);
@@ -45,20 +50,18 @@ function BlockExplorer() {
         Real-time visibility into the Xeris Layer 1 network state.
       </p>
 
-      {/* Hero Stats */}
       <div className="countdown-container" style={{ animation: 'none', background: 'rgba(255, 255, 255, 0.05)' }}>
         <div className="countdown-title">
           <span className="live-indicator"></span> Current Network Height
         </div>
         <div className="countdown-value" style={{ fontSize: '4rem', color: '#17A2B8' }}>
-          {loading ? '---' : latestSlot ? latestSlot.toLocaleString() : '0'}
+          {loading ? '...' : (latestSlot !== null ? latestSlot.toLocaleString() : '0')}
         </div>
         <div className="countdown-label">Total Slots Validated</div>
       </div>
 
-      {error && <p className="error-message" style={{ color: '#ff4500' }}>{error}</p>}
+      {error && <p className="error-message" style={{ color: '#ff4500', marginTop: '1rem' }}>{error}</p>}
 
-      {/* Recent Blocks Table */}
       <div className="partnership-grid" style={{ marginTop: '3rem' }}>
         <div className="partnership-card" style={{ maxWidth: '100%', textAlign: 'left' }}>
           <h3 style={{ marginBottom: '1.5rem' }}><FaDatabase className="btn-icon" /> Recent Blocks</h3>
@@ -72,15 +75,28 @@ function BlockExplorer() {
                 </tr>
               </thead>
               <tbody>
-                {recentBlocks.map((block, idx) => (
-                  <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                    <td style={{ padding: '1rem', fontWeight: 'bold', color: '#32cd32' }}>{block.slot}</td>
-                    <td style={{ padding: '1rem', fontFamily: 'monospace', fontSize: '0.8rem' }}>
-                      {block.hash ? `${block.hash.substring(0, 16)}...` : 'N/A'}
+                {recentBlocks && recentBlocks.length > 0 ? (
+                  recentBlocks.map((block, idx) => {
+                    const hashHex = bytesToHex(block.hash);
+                    return (
+                      <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                        <td style={{ padding: '1rem', fontWeight: 'bold', color: '#32cd32' }}>{block.slot}</td>
+                        <td style={{ padding: '1rem', fontFamily: 'monospace', fontSize: '0.8rem' }}>
+                          {hashHex !== 'N/A' ? `${hashHex.substring(0, 16)}...` : 'N/A'}
+                        </td>
+                        <td style={{ padding: '1rem' }}>
+                          {block.poh_timestamp ? new Date(block.poh_timestamp).toLocaleTimeString() : 'Pending'}
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan="3" style={{ padding: '2rem', textAlign: 'center', color: '#aaa' }}>
+                      {loading ? 'Fetching ledger data...' : 'No blocks found in current epoch.'}
                     </td>
-                    <td style={{ padding: '1rem' }}>{new Date(block.timestamp).toLocaleTimeString()}</td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>
