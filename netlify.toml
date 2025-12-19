@@ -3,6 +3,14 @@
   functions = "functions"
   command = "cd frontend && npm run build"
 
+# 1. Specific rules MUST come first
+[[redirects]]
+  from = "/api/*"
+  to = "http://138.197.116.81:56001/:splat"
+  status = 200
+  force = true
+
+# 2. General catch-all rules come last
 [[redirects]]
   from = "/*"
   to = "/index.html"
