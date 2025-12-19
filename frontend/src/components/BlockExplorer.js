@@ -9,7 +9,7 @@ function BlockExplorer() {
   const [error, setError] = useState(null);
 
   // Replace with your actual Ubuntu Server API URL
-const RPC_ENDPOINT = '/api/blocks';
+  const RPC_ENDPOINT = '/api/blocks';
 
   const fetchBlockchainData = useCallback(async () => {
     try {
